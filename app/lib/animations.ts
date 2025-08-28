@@ -232,12 +232,27 @@ export const mobileMenuItem: Variants = {
 // Configuraciones del viewport para Intersection Observer
 export const viewportConfig = {
   once: true,
-  margin: "-100px",
-  amount: 0.3,
+  margin: "-50px",
+  amount: 0.1,
+};
+
+export const viewportConfigMobile = {
+  once: true,
+  margin: "0px",
+  amount: 0.05,
 };
 
 export const viewportConfigLarge = {
   once: true,
-  margin: "-50px",
-  amount: 0.1,
+  margin: "-100px",
+  amount: 0.2,
+};
+
+// Función utilitaria para obtener viewport config responsive
+export const getResponsiveViewportConfig = () => {
+  if (typeof window !== 'undefined') {
+    const isMobile = window.innerWidth < 768;
+    return isMobile ? viewportConfigMobile : viewportConfig;
+  }
+  return viewportConfig; // Fallback para SSR
 };

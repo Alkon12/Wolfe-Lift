@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import type { TranslationKey } from "~/lib/i18n";
 import { EquipmentCard } from "./EquipmentCard";
 import { equipmentData } from "~/lib/equipmentData";
-import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from "~/lib/animations";
+import { fadeInUp, staggerContainer, staggerItem, viewportConfigMobile } from "~/lib/animations";
 
 interface EquipmentSectionProps {
   t: TranslationKey;
@@ -13,18 +13,18 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
   return (
     <motion.section 
       id="equipment" 
-      className="py-20 bg-white"
+      className="py-12 sm:py-16 lg:py-20 bg-white"
       initial="hidden"
       whileInView="visible"
-      viewport={viewportConfig}
+      viewport={viewportConfigMobile}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           variants={fadeInUp}
         >
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4"
             variants={fadeInUp}
           >
             {t.services.title}
@@ -38,11 +38,11 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={viewportConfig}
+          viewport={viewportConfigMobile}
         >
           <motion.div variants={staggerItem}>
             <EquipmentCard

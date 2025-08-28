@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import type { TranslationKey } from "~/lib/i18n";
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, formFieldAnimation, buttonHover, viewportConfig } from "~/lib/animations";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, formFieldAnimation, buttonHover, viewportConfigMobile } from "~/lib/animations";
 
 interface ContactSectionProps {
   t: TranslationKey;
@@ -23,48 +23,50 @@ export function ContactSection({ t }: ContactSectionProps) {
   return (
     <motion.section 
       id="contact" 
-      className="py-20 bg-gray-50 relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
-      viewport={viewportConfig}
+      viewport={viewportConfigMobile}
     >
-      {/* Animated background dots */}
+      {/* Animated background dots - optimized for mobile */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-4 -right-4 w-72 h-72 bg-red-100 rounded-full opacity-20"
+          className="absolute -top-4 -right-4 w-48 sm:w-72 h-48 sm:h-72 bg-red-100 rounded-full opacity-20"
           animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 20, 0],
-            y: [0, -10, 0],
+            scale: [1, 1.05, 1],
+            x: [0, 10, 0],
+            y: [0, -5, 0],
           }}
           transition={{
-            duration: 8,
+            duration: 12,
             repeat: Infinity,
             repeatType: "reverse",
+            ease: "easeInOut",
           }}
         />
         <motion.div
-          className="absolute -bottom-4 -left-4 w-96 h-96 bg-red-50 rounded-full opacity-30"
+          className="absolute -bottom-4 -left-4 w-64 sm:w-96 h-64 sm:h-96 bg-red-50 rounded-full opacity-20 sm:opacity-30"
           animate={{
-            scale: [1, 0.9, 1],
-            x: [0, -15, 0],
-            y: [0, 15, 0],
+            scale: [1, 0.95, 1],
+            x: [0, -8, 0],
+            y: [0, 8, 0],
           }}
           transition={{
-            duration: 10,
+            duration: 15,
             repeat: Infinity,
             repeatType: "reverse",
+            ease: "easeInOut",
           }}
         />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           variants={fadeInUp}
         >
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4"
             variants={fadeInUp}
           >
             {t.contact.title}
@@ -77,7 +79,7 @@ export function ContactSection({ t }: ContactSectionProps) {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div 
             className="bg-white rounded-xl p-8 shadow-lg relative overflow-hidden"
             variants={fadeInLeft}

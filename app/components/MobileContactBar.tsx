@@ -4,7 +4,7 @@ export function MobileContactBar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white p-4 flex justify-between items-center sm:hidden z-40">
       <a
-        href="tel:6265555438"
+        href="tel:6264222271"
         className="flex items-center space-x-2 font-semibold"
       >
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -21,3 +21,4 @@ export function MobileContactBar() {
     </div>
   );
 }
+

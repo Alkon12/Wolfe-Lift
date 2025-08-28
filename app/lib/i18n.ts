@@ -5,7 +5,7 @@ export const translations = {
       equipment: "Equipment",
       services: "Services",
       contact: "Contact",
-      phone: "(626) 555-LIFT",
+      phone: "(626) 422-2271",
       quote: "Get Quote",
     },
     hero: {
@@ -85,7 +85,7 @@ export const translations = {
       equipment: "Equipos",
       services: "Servicios",
       contact: "Contacto",
-      phone: "(626) 555-LIFT",
+      phone: "(626) 422-2271",
       quote: "Cotizar",
     },
     hero: {
@@ -165,3 +165,4 @@ export const translations = {
 
 export type Language = keyof typeof translations;
 export type TranslationKey = typeof translations.en;
+

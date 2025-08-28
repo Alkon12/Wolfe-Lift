@@ -47,7 +47,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   type="tel"
                   id="phone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                  placeholder="(626) 555-0123"
+                  placeholder="(626) 422-2271"
                 />
               </div>
 
@@ -109,7 +109,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   Call Us Now
                 </h3>
                 <a
-                  href="tel:6265555438"
+                  href="tel:6264222271"
                   className="text-2xl font-bold text-red-600 hover:text-red-700"
                 >
                   {t.nav.phone}
@@ -163,3 +163,4 @@ export function ContactSection({ t }: ContactSectionProps) {
     </section>
   );
 }
+

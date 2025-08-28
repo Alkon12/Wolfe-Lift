@@ -69,7 +69,7 @@ export function Footer({ t }: FooterProps) {
                 Sat: 7AM-3PM
               </p>
               <a
-                href="tel:6265555438"
+                href="tel:6264222271"
                 className="text-red-400 hover:text-red-300 font-semibold"
               >
                 {t.nav.phone}
@@ -96,3 +96,4 @@ export function Footer({ t }: FooterProps) {
     </footer>
   );
 }
+

@@ -74,7 +74,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
             </div>
 
             <a
-              href="tel:6265555438"
+              href="tel:6264222271"
               className="hidden sm:flex items-center text-red-600 font-bold text-lg hover:text-red-700 transition-colors"
             >
               <svg
@@ -151,7 +151,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
               {t.nav.contact}
             </a>
             <a
-              href="tel:6265555438"
+              href="tel:6264222271"
               className="block px-4 py-2 text-red-600 font-bold"
             >
               {t.nav.phone}
@@ -162,3 +162,4 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
     </header>
   );
 }
+

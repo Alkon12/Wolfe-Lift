@@ -83,7 +83,7 @@ export function HeroSection({ t }: HeroSectionProps) {
               {t.hero.cta1}
             </a>
             <a
-              href="tel:6265555438"
+              href="tel:6264222271"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all"
             >
               {t.hero.cta2}
@@ -94,3 +94,4 @@ export function HeroSection({ t }: HeroSectionProps) {
     </section>
   );
 }
+

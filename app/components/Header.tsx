@@ -203,7 +203,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
                     closed: { d: "M4 6h16M4 12h16M4 18h16" },
                     open: { d: "M6 18L18 6M6 6l12 12" }
                   }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                 />
               </motion.svg>
             </motion.button>
@@ -213,7 +213,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
-              className="md:hidden border-t border-gray-200 py-4 space-y-2 bg-white"
+              className="md:hidden border-t border-gray-200 py-3 space-y-1 bg-white"
               variants={mobileMenuAnimation}
               initial="hidden"
               animate="visible"
@@ -236,23 +236,23 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
                   }`}
                   variants={mobileMenuItem}
                   whileHover={{ 
-                    x: 5,
-                    scale: 1.02,
+                    x: 3,
                     backgroundColor: item.special ? "#fef2f2" : "#f9fafb"
                   }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ 
-                    duration: 0.2,
-                    delay: index * 0.1 
+                    duration: 0.15,
+                    ease: [0.4, 0, 0.2, 1]
                   }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <motion.span
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ 
-                      duration: 0.3,
-                      delay: index * 0.1 + 0.2 
+                      duration: 0.2,
+                      delay: index * 0.05 + 0.1,
+                      ease: [0.4, 0, 0.2, 1]
                     }}
                   >
                     {item.text}

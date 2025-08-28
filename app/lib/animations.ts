@@ -194,22 +194,22 @@ export const formFieldAnimation: Variants = {
   },
 };
 
-// Animación para navegación móvil
+// Animación para navegación móvil - Optimizada para móvil
 export const mobileMenuAnimation: Variants = {
   hidden: {
     opacity: 0,
     height: 0,
     transition: {
-      duration: 0.3,
-      ease: easing,
+      duration: 0.2,
+      ease: [0.4, 0, 0.2, 1], // ease-out más rápido
     },
   },
   visible: {
     opacity: 1,
     height: "auto",
     transition: {
-      duration: 0.4,
-      ease: easing,
+      duration: 0.25,
+      ease: [0.4, 0, 0.2, 1], // ease-out más rápido
     },
   },
 };
@@ -217,14 +217,14 @@ export const mobileMenuAnimation: Variants = {
 export const mobileMenuItem: Variants = {
   hidden: {
     opacity: 0,
-    x: -20,
+    x: -15,
   },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.3,
-      ease: easing,
+      duration: 0.2,
+      ease: [0.4, 0, 0.2, 1], // ease-out más rápido
     },
   },
 };

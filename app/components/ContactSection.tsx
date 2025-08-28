@@ -1,166 +1,438 @@
-import React from "react";
-import { TranslationKey } from "~/lib/i18n";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import type { TranslationKey } from "~/lib/i18n";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, formFieldAnimation, buttonHover, viewportConfig } from "~/lib/animations";
 
 interface ContactSectionProps {
   t: TranslationKey;
 }
 
 export function ContactSection({ t }: ContactSectionProps) {
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    company: "",
+    phone: "",
+    equipment: "",
+    date: ""
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+    <motion.section 
+      id="contact" 
+      className="py-20 bg-gray-50 relative overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
+    >
+      {/* Animated background dots */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute -top-4 -right-4 w-72 h-72 bg-red-100 rounded-full opacity-20"
+          animate={{
+            scale: [1, 1.1, 1],
+            x: [0, 20, 0],
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-4 -left-4 w-96 h-96 bg-red-50 rounded-full opacity-30"
+          animate={{
+            scale: [1, 0.9, 1],
+            x: [0, -15, 0],
+            y: [0, 15, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          variants={fadeInUp}
+        >
+          <motion.h2 
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            variants={fadeInUp}
+          >
             {t.contact.title}
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            variants={fadeInUp}
+          >
             {t.contact.subtitle}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <form className="space-y-6">
-              <div>
-                <label
+          <motion.div 
+            className="bg-white rounded-xl p-8 shadow-lg relative overflow-hidden"
+            variants={fadeInLeft}
+            whileHover={{ 
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              transition: { duration: 0.3 }
+            }}
+          >
+            {/* Animated border gradient */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: focusedField ? 0.05 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
+            
+            <motion.form 
+              className="space-y-6 relative z-10"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={staggerItem}>
+                <motion.label
                   htmlFor="company"
                   className="block text-sm font-medium text-gray-700 mb-2"
+                  animate={{ 
+                    color: focusedField === "company" ? "#dc2626" : "#374151",
+                    scale: focusedField === "company" ? 1.02 : 1 
+                  }}
+                  transition={{ duration: 0.2 }}
                 >
                   {t.contact.form.name}
-                </label>
-                <input
+                </motion.label>
+                <motion.input
                   type="text"
                   id="company"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
                   placeholder="ABC Construction Co."
+                  variants={formFieldAnimation}
+                  whileFocus="focus"
+                  onFocus={() => setFocusedField("company")}
+                  onBlur={() => setFocusedField(null)}
+                  onChange={(e) => handleInputChange("company", e.target.value)}
+                  style={{
+                    boxShadow: focusedField === "company" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
+                  }}
                 />
-              </div>
+              </motion.div>
 
-              <div>
-                <label
+              <motion.div variants={staggerItem}>
+                <motion.label
                   htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 mb-2"
+                  animate={{ 
+                    color: focusedField === "phone" ? "#dc2626" : "#374151",
+                    scale: focusedField === "phone" ? 1.02 : 1 
+                  }}
+                  transition={{ duration: 0.2 }}
                 >
                   {t.contact.form.phone}
-                </label>
-                <input
+                </motion.label>
+                <motion.input
                   type="tel"
                   id="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
                   placeholder="(626) 422-2271"
+                  variants={formFieldAnimation}
+                  whileFocus="focus"
+                  onFocus={() => setFocusedField("phone")}
+                  onBlur={() => setFocusedField(null)}
+                  onChange={(e) => handleInputChange("phone", e.target.value)}
+                  style={{
+                    boxShadow: focusedField === "phone" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
+                  }}
                 />
-              </div>
+              </motion.div>
 
-              <div>
-                <label
+              <motion.div variants={staggerItem}>
+                <motion.label
                   htmlFor="equipment"
                   className="block text-sm font-medium text-gray-700 mb-2"
+                  animate={{ 
+                    color: focusedField === "equipment" ? "#dc2626" : "#374151",
+                    scale: focusedField === "equipment" ? 1.02 : 1 
+                  }}
+                  transition={{ duration: 0.2 }}
                 >
                   {t.contact.form.equipment}
-                </label>
-                <select
+                </motion.label>
+                <motion.select
                   id="equipment"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
+                  variants={formFieldAnimation}
+                  whileFocus="focus"
+                  onFocus={() => setFocusedField("equipment")}
+                  onBlur={() => setFocusedField(null)}
+                  onChange={(e) => handleInputChange("equipment", e.target.value)}
+                  style={{
+                    boxShadow: focusedField === "equipment" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
+                  }}
                 >
                   <option value="">Select Equipment</option>
                   <option value="19ft">19' Scissor Lift</option>
                   <option value="26ft">26' Scissor Lift</option>
                   <option value="32ft">32' Scissor Lift</option>
                   <option value="multiple">Multiple Units</option>
-                </select>
-              </div>
+                </motion.select>
+              </motion.div>
 
-              <div>
-                <label
+              <motion.div variants={staggerItem}>
+                <motion.label
                   htmlFor="date"
                   className="block text-sm font-medium text-gray-700 mb-2"
+                  animate={{ 
+                    color: focusedField === "date" ? "#dc2626" : "#374151",
+                    scale: focusedField === "date" ? 1.02 : 1 
+                  }}
+                  transition={{ duration: 0.2 }}
                 >
                   {t.contact.form.date}
-                </label>
-                <input
+                </motion.label>
+                <motion.input
                   type="date"
                   id="date"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
+                  variants={formFieldAnimation}
+                  whileFocus="focus"
+                  onFocus={() => setFocusedField("date")}
+                  onBlur={() => setFocusedField(null)}
+                  onChange={(e) => handleInputChange("date", e.target.value)}
+                  style={{
+                    boxShadow: focusedField === "date" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
+                  }}
                 />
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors"
+                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold text-lg relative overflow-hidden"
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
               >
-                {t.contact.form.submit}
-              </button>
-            </form>
-          </div>
+                <motion.span className="relative z-10">
+                  {t.contact.form.submit}
+                </motion.span>
+                <motion.div
+                  className="absolute inset-0 bg-red-700"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ 
+                    scale: 1, 
+                    opacity: 1,
+                    transition: { duration: 0.3 }
+                  }}
+                />
+                
+                {/* Ripple effect on click */}
+                <motion.div
+                  className="absolute inset-0 bg-white rounded-lg"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileTap={{ 
+                    scale: 1.5, 
+                    opacity: 0.2,
+                    transition: { duration: 0.6 }
+                  }}
+                />
+              </motion.button>
+            </motion.form>
+          </motion.div>
 
-          <div className="space-y-8">
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
+          <motion.div 
+            className="space-y-8"
+            variants={fadeInRight}
+          >
+            <motion.div 
+              className="flex items-start space-x-4 group"
+              variants={staggerItem}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div 
+                className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0 relative overflow-hidden"
+                whileHover={{ 
+                  scale: 1.1,
+                  boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.svg
                   className="w-6 h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
+                  whileHover={{ 
+                    rotate: [0, -10, 10, 0],
+                    scale: 1.1 
+                  }}
+                  transition={{ duration: 0.5 }}
                 >
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-              </div>
+                </motion.svg>
+                
+                {/* Pulse effect */}
+                <motion.div
+                  className="absolute inset-0 bg-red-500 rounded-lg"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0, 0.3, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                />
+              </motion.div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <motion.h3 
+                  className="text-lg font-semibold text-gray-900 group-hover:text-red-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
                   Call Us Now
-                </h3>
-                <a
+                </motion.h3>
+                <motion.a
                   href="tel:6264222271"
-                  className="text-2xl font-bold text-red-600 hover:text-red-700"
+                  className="text-2xl font-bold text-red-600 hover:text-red-700 block"
+                  whileHover={{ 
+                    scale: 1.05,
+                    color: "#b91c1c" 
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                 >
                   {t.nav.phone}
-                </a>
-                <p className="text-gray-600">Available for emergency rentals</p>
+                </motion.a>
+                <motion.p 
+                  className="text-gray-600"
+                  initial={{ opacity: 0.7 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  Available for emergency rentals
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
+            <motion.div 
+              className="flex items-start space-x-4 group"
+              variants={staggerItem}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div 
+                className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0"
+                whileHover={{ 
+                  scale: 1.1,
+                  boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.svg
                   className="w-6 h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
+                  whileHover={{ 
+                    y: [-2, 2, -2],
+                    scale: 1.1 
+                  }}
+                  transition={{ duration: 0.5 }}
                 >
                   <path
                     fillRule="evenodd"
                     d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                     clipRule="evenodd"
                   />
-                </svg>
-              </div>
+                </motion.svg>
+              </motion.div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <motion.h3 
+                  className="text-lg font-semibold text-gray-900 group-hover:text-red-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
                   Visit Our Location
-                </h3>
-                <p className="text-gray-700">{t.contact.info.address}</p>
-                <p className="text-gray-600">{t.contact.info.hours}</p>
+                </motion.h3>
+                <motion.p 
+                  className="text-gray-700"
+                  whileHover={{ color: "#374151" }}
+                >
+                  {t.contact.info.address}
+                </motion.p>
+                <motion.p 
+                  className="text-gray-600"
+                  whileHover={{ color: "#4b5563" }}
+                >
+                  {t.contact.info.hours}
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+            <motion.div 
+              className="bg-white rounded-lg p-6 shadow-sm relative overflow-hidden"
+              variants={staggerItem}
+              whileHover={{ 
+                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                y: -2,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-red-50 to-transparent opacity-0"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              <motion.h3 
+                className="text-lg font-semibold text-gray-900 mb-3 relative z-10"
+                whileHover={{ color: "#dc2626" }}
+                transition={{ duration: 0.2 }}
+              >
                 Service Area
-              </h3>
-              <p className="text-gray-600 mb-4">
+              </motion.h3>
+              <motion.p 
+                className="text-gray-600 mb-4 relative z-10"
+                initial={{ opacity: 0.8 }}
+                whileHover={{ opacity: 1 }}
+              >
                 We proudly serve San Dimas and surrounding areas including:
-              </p>
-              <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                <div>• Pomona</div>
-                <div>• La Verne</div>
-                <div>• Claremont</div>
-                <div>• Glendora</div>
-                <div>• Covina</div>
-                <div>• West Covina</div>
-              </div>
-            </div>
-          </div>
+              </motion.p>
+              <motion.div 
+                className="grid grid-cols-2 gap-2 text-sm text-gray-600 relative z-10"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {["Pomona", "La Verne", "Claremont", "Glendora", "Covina", "West Covina"].map((city, index) => (
+                  <motion.div 
+                    key={city}
+                    variants={staggerItem}
+                    whileHover={{ 
+                      color: "#dc2626",
+                      x: 5,
+                      fontWeight: "600"
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="cursor-pointer"
+                  >
+                    • {city}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

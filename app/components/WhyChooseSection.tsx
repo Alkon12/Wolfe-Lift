@@ -1,6 +1,8 @@
 import React from "react";
-import { TranslationKey } from "~/lib/i18n";
+import { motion } from "framer-motion";
+import type { TranslationKey } from "~/lib/i18n";
 import { FeaturePoint } from "./FeaturePoint";
+import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from "~/lib/animations";
 
 interface WhyChooseSectionProps {
   t: TranslationKey;
@@ -40,40 +42,88 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
   );
 
   return (
-    <section id="services" className="py-20 bg-gray-900 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            {t.whyChoose.title}
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            {t.whyChoose.subtitle}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <FeaturePoint
-            title={t.whyChoose.point1.title}
-            description={t.whyChoose.point1.desc}
-            icon={clockIcon}
-          />
-          <FeaturePoint
-            title={t.whyChoose.point2.title}
-            description={t.whyChoose.point2.desc}
-            icon={shieldIcon}
-          />
-          <FeaturePoint
-            title={t.whyChoose.point3.title}
-            description={t.whyChoose.point3.desc}
-            icon={checkIcon}
-          />
-          <FeaturePoint
-            title={t.whyChoose.point4.title}
-            description={t.whyChoose.point4.desc}
-            icon={moneyIcon}
-          />
-        </div>
+    <motion.section 
+      id="services" 
+      className="py-20 bg-gray-900 text-white relative overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
+    >
+      {/* Animated background pattern */}
+      <div className="absolute inset-0">
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full opacity-5"
+          style={{
+            background: "radial-gradient(circle at 25% 25%, #ef4444 0%, transparent 50%), radial-gradient(circle at 75% 75%, #dc2626 0%, transparent 50%)",
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 2, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
       </div>
-    </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          variants={fadeInUp}
+        >
+          <motion.h2 
+            className="text-4xl lg:text-5xl font-bold mb-4"
+            variants={fadeInUp}
+          >
+            {t.whyChoose.title}
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            variants={fadeInUp}
+          >
+            {t.whyChoose.subtitle}
+          </motion.p>
+        </motion.div>
+
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
+          <motion.div variants={staggerItem}>
+            <FeaturePoint
+              title={t.whyChoose.point1.title}
+              description={t.whyChoose.point1.desc}
+              icon={clockIcon}
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <FeaturePoint
+              title={t.whyChoose.point2.title}
+              description={t.whyChoose.point2.desc}
+              icon={shieldIcon}
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <FeaturePoint
+              title={t.whyChoose.point3.title}
+              description={t.whyChoose.point3.desc}
+              icon={checkIcon}
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <FeaturePoint
+              title={t.whyChoose.point4.title}
+              description={t.whyChoose.point4.desc}
+              icon={moneyIcon}
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.section>
   );
 }

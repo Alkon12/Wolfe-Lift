@@ -11,39 +11,39 @@ export const translations = {
     hero: {
       headline: "Professional Scissor Lift Rentals",
       subheadline:
-        "Serving San Dimas contractors with reliable equipment and same-day delivery",
+        "Serving Los Angeles County and surrounding areas with reliable equipment and same-day delivery",
       cta1: "Get Instant Quote",
       cta2: "Call Now",
     },
     services: {
       title: "Our Equipment",
       subtitle: "Professional grade scissor lifts for any job site",
+      lift12: {
+        title: "12' Scissor Lift",
+        specs: "Compact design • Indoor use • 500 lb capacity",
+        rate: "Get Quote Now",
+      },
       lift19: {
         title: "19' Scissor Lift",
-        specs: "Compact design • Indoor/outdoor use • 500 lb capacity",
-        rate: "$125/day",
+        specs: "Mid-range height • Indoor/outdoor use • 750 lb capacity",
+        rate: "Get Quote Now",
       },
       lift26: {
         title: "26' Scissor Lift",
-        specs: "Mid-range height • Rough terrain capable • 750 lb capacity",
-        rate: "$175/day",
-      },
-      lift32: {
-        title: "32' Scissor Lift",
-        specs: "Maximum height • Heavy duty construction • 1000 lb capacity",
-        rate: "$225/day",
+        specs: "Maximum height • Rough terrain capable • 1000 lb capacity",
+        rate: "Get Quote Now",
       },
     },
     whyChoose: {
       title: "Why Choose Wolfe Lift?",
-      subtitle: "Trusted by San Dimas contractors for over 15 years",
+      subtitle: "Trusted by contractors throughout Los Angeles County for over 15 years",
       point1: {
         title: "Same-Day Delivery",
         desc: "Equipment delivered to your job site within hours",
       },
       point2: {
-        title: "Licensed & Insured",
-        desc: "Fully licensed contractor with comprehensive insurance",
+        title: "Affordable Delivery",
+        desc: "Delivery starts at $150 - Pickup is FREE",
       },
       point3: {
         title: "Expert Support",
@@ -51,7 +51,7 @@ export const translations = {
       },
       point4: {
         title: "Competitive Rates",
-        desc: "Best prices in San Dimas with no hidden fees",
+        desc: "Best prices in Los Angeles County with no hidden fees",
       },
     },
     contact: {
@@ -91,7 +91,7 @@ export const translations = {
     hero: {
       headline: "Renta de Plataformas Elevadoras",
       subheadline:
-        "Sirviendo a contratistas de San Dimas con equipo confiable y entrega el mismo día",
+        "Sirviendo el Condado de Los Ángeles y áreas circundantes con equipo confiable y entrega el mismo día",
       cta1: "Cotizar Ahora",
       cta2: "Llamar Ahora",
     },
@@ -99,32 +99,32 @@ export const translations = {
       title: "Nuestro Equipo",
       subtitle:
         "Plataformas elevadoras de grado profesional para cualquier obra",
+      lift12: {
+        title: "Plataforma de 12'",
+        specs: "Diseño compacto • Uso interior • Capacidad 500 lb",
+        rate: "Cotizar Ahora",
+      },
       lift19: {
         title: "Plataforma de 19'",
-        specs: "Diseño compacto • Uso interior/exterior • Capacidad 500 lb",
-        rate: "$125/día",
+        specs: "Altura media • Uso interior/exterior • Capacidad 750 lb",
+        rate: "Cotizar Ahora",
       },
       lift26: {
         title: "Plataforma de 26'",
-        specs: "Altura media • Terreno rugoso • Capacidad 750 lb",
-        rate: "$175/día",
-      },
-      lift32: {
-        title: "Plataforma de 32'",
-        specs: "Altura máxima • Construcción resistente • Capacidad 1000 lb",
-        rate: "$225/día",
+        specs: "Altura máxima • Terreno rugoso • Capacidad 1000 lb",
+        rate: "Cotizar Ahora",
       },
     },
     whyChoose: {
       title: "¿Por Qué Elegir Wolfe Lift?",
-      subtitle: "Confianza de contratistas de San Dimas por más de 15 años",
+      subtitle: "Confianza de contratistas del Condado de Los Ángeles por más de 15 años",
       point1: {
         title: "Entrega el Mismo Día",
         desc: "Equipo entregado a su obra en horas",
       },
       point2: {
-        title: "Licenciado y Asegurado",
-        desc: "Contratista completamente licenciado con seguro integral",
+        title: "Entrega Económica",
+        desc: "Entrega desde $150 - Recogida GRATIS",
       },
       point3: {
         title: "Soporte Experto",
@@ -132,7 +132,7 @@ export const translations = {
       },
       point4: {
         title: "Precios Competitivos",
-        desc: "Mejores precios en San Dimas sin cargos ocultos",
+        desc: "Mejores precios en el Condado de Los Ángeles sin cargos ocultos",
       },
     },
     contact: {

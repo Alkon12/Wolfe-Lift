@@ -406,7 +406,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                 initial={{ opacity: 0.8 }}
                 whileHover={{ opacity: 1 }}
               >
-                We proudly serve San Dimas and surrounding areas including:
+                We proudly serve Los Angeles County and surrounding areas including:
               </motion.p>
               <motion.div 
                 className="grid grid-cols-2 gap-2 text-sm text-gray-600 relative z-10"
@@ -414,7 +414,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                 initial="hidden"
                 animate="visible"
               >
-                {["Pomona", "La Verne", "Claremont", "Glendora", "Covina", "West Covina"].map((city, index) => (
+                {["San Dimas", "Pomona", "La Verne", "Claremont", "Glendora", "Covina", "West Covina", "Pasadena"].map((city, index) => (
                   <motion.div 
                     key={city}
                     variants={staggerItem}

@@ -46,6 +46,15 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
         >
           <motion.div variants={staggerItem}>
             <EquipmentCard
+              title={t.services.lift12.title}
+              specs={t.services.lift12.specs}
+              rate={t.services.lift12.rate}
+              quoteText={t.nav.quote}
+              image={equipmentData["12"].image}
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <EquipmentCard
               title={t.services.lift19.title}
               specs={t.services.lift19.specs}
               rate={t.services.lift19.rate}
@@ -60,15 +69,6 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
               rate={t.services.lift26.rate}
               quoteText={t.nav.quote}
               image={equipmentData["26"].image}
-            />
-          </motion.div>
-          <motion.div variants={staggerItem}>
-            <EquipmentCard
-              title={t.services.lift32.title}
-              specs={t.services.lift32.specs}
-              rate={t.services.lift32.rate}
-              quoteText={t.nav.quote}
-              image={equipmentData["32"].image}
             />
           </motion.div>
         </motion.div>

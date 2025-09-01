@@ -75,7 +75,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">Licensed</span>
+                    <span className="font-medium text-white/90">Quality Equipment</span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg
@@ -89,7 +89,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">Insured</span>
+                    <span className="font-medium text-white/90">Expert Service</span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg

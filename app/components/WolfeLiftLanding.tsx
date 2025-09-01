@@ -19,7 +19,7 @@ export function WolfeLiftLanding() {
       <WhyChooseSection t={t} />
       <ContactSection t={t} />
       <Footer t={t} />
-      <MobileContactBar />
+      <MobileContactBar t={t} />
     </div>
   );
 }

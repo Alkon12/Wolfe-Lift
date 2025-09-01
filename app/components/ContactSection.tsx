@@ -118,7 +118,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   type="text"
                   id="company"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  placeholder="ABC Construction Co."
+                  placeholder={t.contact.form.placeholderCompany}
                   variants={formFieldAnimation}
                   whileFocus="focus"
                   onFocus={() => setFocusedField("company")}
@@ -146,7 +146,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   type="tel"
                   id="phone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  placeholder="(626) 422-2271"
+                  placeholder={t.contact.form.placeholderPhone}
                   variants={formFieldAnimation}
                   whileFocus="focus"
                   onFocus={() => setFocusedField("phone")}
@@ -182,11 +182,11 @@ export function ContactSection({ t }: ContactSectionProps) {
                     boxShadow: focusedField === "equipment" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
                   }}
                 >
-                  <option value="">Select Equipment</option>
-                  <option value="19ft">19' Scissor Lift</option>
-                  <option value="26ft">26' Scissor Lift</option>
-                  <option value="32ft">32' Scissor Lift</option>
-                  <option value="multiple">Multiple Units</option>
+                  <option value="">{t.contact.form.selectEquipment}</option>
+                  <option value="19ft">{t.contact.form.lift19Option}</option>
+                  <option value="26ft">{t.contact.form.lift26Option}</option>
+                  <option value="32ft">{t.contact.form.lift32Option}</option>
+                  <option value="multiple">{t.contact.form.multipleOption}</option>
                 </motion.select>
               </motion.div>
 
@@ -301,7 +301,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  Call Us Now
+                  {t.contact.callUsNow}
                 </motion.h3>
                 <motion.a
                   href="tel:6264222271"
@@ -320,7 +320,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   initial={{ opacity: 0.7 }}
                   whileHover={{ opacity: 1 }}
                 >
-                  Available for emergency rentals
+                  {t.contact.emergencyRentals}
                 </motion.p>
               </div>
             </motion.div>
@@ -362,7 +362,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  Visit Our Location
+                  {t.contact.visitLocation}
                 </motion.h3>
                 <motion.p 
                   className="text-gray-700"
@@ -399,14 +399,14 @@ export function ContactSection({ t }: ContactSectionProps) {
                 whileHover={{ color: "#dc2626" }}
                 transition={{ duration: 0.2 }}
               >
-                Service Area
+                {t.contact.serviceArea}
               </motion.h3>
               <motion.p 
                 className="text-gray-600 mb-4 relative z-10"
                 initial={{ opacity: 0.8 }}
                 whileHover={{ opacity: 1 }}
               >
-                We proudly serve Los Angeles County and surrounding areas including:
+                {t.contact.serviceAreaDesc}
               </motion.p>
               <motion.div 
                 className="grid grid-cols-2 gap-2 text-sm text-gray-600 relative z-10"

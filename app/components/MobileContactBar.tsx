@@ -1,8 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { buttonHover } from "~/lib/animations";
+import type { TranslationKey } from "~/lib/i18n";
 
-export function MobileContactBar() {
+interface MobileContactBarProps {
+  t: TranslationKey;
+}
+
+export function MobileContactBar({ t }: MobileContactBarProps) {
   return (
     <motion.div 
       className="fixed bottom-0 left-0 right-0 bg-red-600 text-white p-4 flex justify-between items-center sm:hidden z-40 shadow-lg"
@@ -61,7 +66,7 @@ export function MobileContactBar() {
           whileHover={{ x: 2 }}
           transition={{ duration: 0.2 }}
         >
-          Call Now
+          {t.mobile.callNow}
         </motion.span>
       </motion.a>
       
@@ -73,7 +78,7 @@ export function MobileContactBar() {
         whileTap="tap"
       >
         <motion.span className="relative z-10">
-          Get Quote
+          {t.mobile.getQuote}
         </motion.span>
         
         {/* Hover background effect */}

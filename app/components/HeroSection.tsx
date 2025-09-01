@@ -36,13 +36,13 @@ export function HeroSection({ t }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-red-800/20"></div>
               <div className="transform skew-x-2 relative z-10">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight uppercase tracking-wide drop-shadow-lg">
-                  RENT AN ELECTRIC
+                  {t.hero.mainTitle1}
                   <br />
                   <span className="text-black font-black drop-shadow-md">
-                    SCISSOR LIFT
+                    {t.hero.mainTitle2}
                   </span>
                   <br />
-                  FROM US TODAY
+                  {t.hero.mainTitle3}
                 </h1>
               </div>
               {/* Shine effect */}
@@ -75,7 +75,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">Quality Equipment</span>
+                    <span className="font-medium text-white/90">{t.hero.qualityEquipment}</span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg
@@ -89,7 +89,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">Expert Service</span>
+                    <span className="font-medium text-white/90">{t.hero.expertService}</span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg
@@ -104,7 +104,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                       />
                     </svg>
                     <span className="font-medium text-white/90">
-                      Same-Day Delivery
+                      {t.hero.sameDayDelivery}
                     </span>
                   </div>
                 </div>
@@ -144,16 +144,16 @@ export function HeroSection({ t }: HeroSectionProps) {
 
           <div className="relative z-10">
             <p className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-white drop-shadow-lg text-center sm:text-left">
-              Save time and money
+              {t.hero.saveTimeMoney}
             </p>
             <div className="bg-gradient-to-br from-red-600 to-red-600/80 text-white p-2 sm:p-3 rounded-xl transform -skew-x-1 shadow-lg relative overflow-hidden backdrop-blur-sm border border-red-400/30">
               <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-transparent"></div>
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
               <div className="transform skew-x-1 relative z-10 text-center sm:text-left">
                 <p className="text-base sm:text-lg font-bold drop-shadow-sm">
-                  reach new heights
+                  {t.hero.reachHeights}
                 </p>
-                <p className="text-xs sm:text-sm opacity-95">for all your projects</p>
+                <p className="text-xs sm:text-sm opacity-95">{t.hero.forProjects}</p>
               </div>
             </div>
           </div>

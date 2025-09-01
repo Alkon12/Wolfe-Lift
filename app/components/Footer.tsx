@@ -79,14 +79,14 @@ export function Footer({ t }: FooterProps) {
                   whileHover={{ color: "#ef4444" }}
                   transition={{ duration: 0.2 }}
                 >
-                  Wolfe Lift
+                  {t.footer.companyName}
                 </motion.h3>
                 <motion.p 
                   className="text-sm text-gray-400"
                   whileHover={{ color: "#9ca3af" }}
                   transition={{ duration: 0.2 }}
                 >
-                  Rentals & Transport
+                  {t.footer.companyTagline}
                 </motion.p>
               </div>
             </motion.div>
@@ -105,7 +105,7 @@ export function Footer({ t }: FooterProps) {
               whileHover={{ color: "#ef4444" }}
               transition={{ duration: 0.2 }}
             >
-              Quick Links
+              {t.footer.quickLinks}
             </motion.h4>
             <motion.div 
               className="space-y-2 text-sm"
@@ -114,9 +114,9 @@ export function Footer({ t }: FooterProps) {
               animate="visible"
             >
               {[
-                { href: "#equipment", text: "Equipment Rentals" },
+                { href: "#equipment", text: t.footer.equipmentRentals },
                 { href: "#services", text: t.footer.links.about },
-                { href: "#contact", text: "Contact Us" },
+                { href: "#contact", text: t.footer.contactUs },
                 { href: "#", text: t.footer.links.safety },
               ].map((link, index) => (
                 <motion.a
@@ -142,7 +142,7 @@ export function Footer({ t }: FooterProps) {
               whileHover={{ color: "#ef4444" }}
               transition={{ duration: 0.2 }}
             >
-              Contact
+              {t.footer.contactTitle}
             </motion.h4>
             <motion.div 
               className="space-y-2 text-sm"
@@ -156,9 +156,7 @@ export function Footer({ t }: FooterProps) {
                 whileHover={{ color: "#9ca3af" }}
                 transition={{ duration: 0.2 }}
               >
-                123 Industry Blvd
-                <br />
-                San Dimas, CA 91773
+                {t.contact.info.address}
               </motion.p>
               <motion.p 
                 className="text-gray-400"
@@ -166,9 +164,7 @@ export function Footer({ t }: FooterProps) {
                 whileHover={{ color: "#9ca3af" }}
                 transition={{ duration: 0.2 }}
               >
-                Mon-Fri: 6AM-6PM
-                <br />
-                Sat: 7AM-3PM
+                {t.contact.info.hours}
               </motion.p>
               <motion.a
                 href="tel:6264222271"
@@ -195,7 +191,7 @@ export function Footer({ t }: FooterProps) {
             whileHover={{ color: "#9ca3af" }}
             transition={{ duration: 0.2 }}
           >
-            © 2024 Wolfe Lift Rentals & Transport. All rights reserved.
+            {t.footer.copyright}
           </motion.p>
           <motion.div 
             className="flex space-x-6 mt-4 sm:mt-0"
@@ -206,7 +202,7 @@ export function Footer({ t }: FooterProps) {
             {[
               t.footer.links.terms,
               t.footer.links.privacy,
-              "CA License #123456",
+              t.footer.license,
             ].map((text, index) => (
               <motion.a 
                 key={index}

@@ -183,9 +183,9 @@ export function ContactSection({ t }: ContactSectionProps) {
                   }}
                 >
                   <option value="">{t.contact.form.selectEquipment}</option>
+                  <option value="12ft">{t.contact.form.lift12Option}</option>
                   <option value="19ft">{t.contact.form.lift19Option}</option>
                   <option value="26ft">{t.contact.form.lift26Option}</option>
-                  <option value="32ft">{t.contact.form.lift32Option}</option>
                   <option value="multiple">{t.contact.form.multipleOption}</option>
                 </motion.select>
               </motion.div>
@@ -325,59 +325,6 @@ export function ContactSection({ t }: ContactSectionProps) {
               </div>
             </motion.div>
 
-            <motion.div 
-              className="flex items-start space-x-4 group"
-              variants={staggerItem}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div 
-                className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0"
-                whileHover={{ 
-                  scale: 1.1,
-                  boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.svg
-                  className="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  whileHover={{ 
-                    y: [-2, 2, -2],
-                    scale: 1.1 
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </motion.svg>
-              </motion.div>
-              <div>
-                <motion.h3 
-                  className="text-lg font-semibold text-gray-900 group-hover:text-red-600 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t.contact.visitLocation}
-                </motion.h3>
-                <motion.p 
-                  className="text-gray-700"
-                  whileHover={{ color: "#374151" }}
-                >
-                  {t.contact.info.address}
-                </motion.p>
-                <motion.p 
-                  className="text-gray-600"
-                  whileHover={{ color: "#4b5563" }}
-                >
-                  {t.contact.info.hours}
-                </motion.p>
-              </div>
-            </motion.div>
 
             <motion.div 
               className="bg-white rounded-lg p-6 shadow-sm relative overflow-hidden"

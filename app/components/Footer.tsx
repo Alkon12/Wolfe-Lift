@@ -150,22 +150,6 @@ export function Footer({ t }: FooterProps) {
               initial="hidden"
               animate="visible"
             >
-              <motion.p 
-                className="text-gray-400"
-                variants={staggerItem}
-                whileHover={{ color: "#9ca3af" }}
-                transition={{ duration: 0.2 }}
-              >
-                {t.contact.info.address}
-              </motion.p>
-              <motion.p 
-                className="text-gray-400"
-                variants={staggerItem}
-                whileHover={{ color: "#9ca3af" }}
-                transition={{ duration: 0.2 }}
-              >
-                {t.contact.info.hours}
-              </motion.p>
               <motion.a
                 href="tel:6264222271"
                 className="text-red-400 hover:text-red-300 font-semibold block"

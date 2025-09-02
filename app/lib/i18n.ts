@@ -28,18 +28,18 @@ export const translations = {
       title: "Our Equipment",
       subtitle: "Professional grade scissor lifts for any job site",
       lift12: {
-        title: "12' Scissor Lift",
-        specs: "Compact design • Indoor use • 500 lb capacity",
+        title: "12ft Scissor Lift",
+        specs: "12ft weight capacity 500 lb",
         rate: "Get Quote Now",
       },
       lift19: {
-        title: "19' Scissor Lift",
-        specs: "Mid-range height • Indoor/outdoor use • 750 lb capacity",
+        title: "19ft Scissor Lift",
+        specs: "19ft weight capacity 500 lb",
         rate: "Get Quote Now",
       },
       lift26: {
-        title: "26' Scissor Lift",
-        specs: "Maximum height • Rough terrain capable • 1000 lb capacity",
+        title: "26ft Scissor Lift",
+        specs: "26ft weight capacity 750 lb",
         rate: "Get Quote Now",
       },
     },
@@ -55,8 +55,8 @@ export const translations = {
         desc: "Delivery starts at $150 - Pickup is FREE",
       },
       point3: {
-        title: "Expert Support",
-        desc: "24/7 technical support and operator training available",
+        title: "Quality Equipment",
+        desc: "Well-maintained professional equipment ready for any job",
       },
       point4: {
         title: "Competitive Rates",
@@ -77,7 +77,7 @@ export const translations = {
         selectEquipment: "Select Equipment",
         lift19Option: "19' Scissor Lift",
         lift26Option: "26' Scissor Lift", 
-        lift32Option: "32' Scissor Lift",
+        lift12Option: "12ft Scissor Lift",
         multipleOption: "Multiple Units",
       },
       info: {
@@ -142,18 +142,18 @@ export const translations = {
       subtitle:
         "Plataformas elevadoras de grado profesional para cualquier obra",
       lift12: {
-        title: "Plataforma de 12'",
-        specs: "Diseño compacto • Uso interior • Capacidad 500 lb",
+        title: "Plataforma de 12ft",
+        specs: "12ft capacidad de peso 500 lb",
         rate: "Cotizar Ahora",
       },
       lift19: {
-        title: "Plataforma de 19'",
-        specs: "Altura media • Uso interior/exterior • Capacidad 750 lb",
+        title: "Plataforma de 19ft",
+        specs: "19ft capacidad de peso 500 lb",
         rate: "Cotizar Ahora",
       },
       lift26: {
-        title: "Plataforma de 26'",
-        specs: "Altura máxima • Terreno rugoso • Capacidad 1000 lb",
+        title: "Plataforma de 26ft",
+        specs: "26ft capacidad de peso 750 lb",
         rate: "Cotizar Ahora",
       },
     },
@@ -169,8 +169,8 @@ export const translations = {
         desc: "Entrega desde $150 - Recogida GRATIS",
       },
       point3: {
-        title: "Soporte Experto",
-        desc: "Soporte técnico 24/7 y entrenamiento de operadores disponible",
+        title: "Equipo de Calidad",
+        desc: "Equipo profesional bien mantenido listo para cualquier trabajo",
       },
       point4: {
         title: "Precios Competitivos",
@@ -192,7 +192,7 @@ export const translations = {
         selectEquipment: "Seleccionar Equipo",
         lift19Option: "Plataforma de 19'",
         lift26Option: "Plataforma de 26'",
-        lift32Option: "Plataforma de 32'",
+        lift12Option: "Plataforma de 12ft",
         multipleOption: "Múltiples Unidades",
       },
       info: {

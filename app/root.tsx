@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <meta name="description" content="Wolfe Lift Rentals - Scissor lift rentals in San Dimas, CA" />
+        <meta name="description" content="Wolfe Lift Rentals - Scissor lift rentals in Los Angeles" />
         <link rel="manifest" href="/site.webmanifest" />
         <Meta />
         <Links />

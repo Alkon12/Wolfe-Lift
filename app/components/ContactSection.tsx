@@ -361,7 +361,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                 initial="hidden"
                 animate="visible"
               >
-                {["San Dimas", "Pomona", "La Verne", "Claremont", "Glendora", "Covina", "West Covina", "Pasadena"].map((city, index) => (
+                {["Los Angeles", "Pomona", "La Verne", "Claremont", "Glendora", "Covina", "West Covina", "Pasadena"].map((city, index) => (
                   <motion.div 
                     key={city}
                     variants={staggerItem}

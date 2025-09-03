@@ -81,7 +81,7 @@ export const translations = {
         multipleOption: "Multiple Units",
       },
       info: {
-        address: "123 Industry Blvd, San Dimas, CA 91773",
+        address: "Los Angeles",
         hours: "Mon-Fri: 6AM-6PM | Sat: 7AM-3PM",
       },
       callUsNow: "Call Us Now",
@@ -196,7 +196,7 @@ export const translations = {
         multipleOption: "Múltiples Unidades",
       },
       info: {
-        address: "123 Industry Blvd, San Dimas, CA 91773",
+        address: "Los Angeles",
         hours: "Lun-Vie: 6AM-6PM | Sáb: 7AM-3PM",
       },
       callUsNow: "Llámanos Ahora",

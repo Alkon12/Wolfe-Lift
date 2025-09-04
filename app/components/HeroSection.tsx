@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import type { TranslationKey } from "~/lib/i18n";
 
 interface HeroSectionProps {
@@ -18,20 +19,53 @@ export function HeroSection({ t }: HeroSectionProps) {
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Logo positioned in top right similar to reference image */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-20 animate-fade-in-right">
+      <motion.div
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-20"
+        initial={{
+          left: "66%",
+          top: "50%",
+          x: "-50%",
+          y: "-50%",
+          scale: 2,
+          opacity: 0,
+        }}
+        animate={[
+          {
+            opacity: 1,
+            transition: { duration: 0.5, ease: "easeOut" },
+          },
+          {
+            left: "auto",
+            top: "auto",
+            x: 0,
+            y: 0,
+            scale: 1,
+            transition: {
+              delay: 1.5,
+              duration: 1.5,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            },
+          },
+        ]}
+      >
         <img
-          src="/Logo.png"
+          src="/LogoSinFondo.png"
           alt="Wolfe Lift Rentals"
-          className="h-12 sm:h-14 md:h-24 lg:h-32 w-auto drop-shadow-lg animate-pulse-slow"
+          className="h-12 sm:h-14 md:h-24 lg:h-32 w-auto drop-shadow-lg"
         />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Main content positioned on the left side like the reference */}
-          <div className="max-w-2xl space-y-4 sm:space-y-6 md:space-y-8 animate-fade-in-left">
+          <motion.div
+            className="max-w-2xl space-y-4 sm:space-y-6 md:space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 3.5, duration: 1, ease: "easeOut" }}
+          >
             {/* Red header banner with modern gradient */}
-            <div className="bg-gradient-to-r from-red-600 to-red-600/80 text-white p-4 sm:p-5 md:p-6 transform -skew-x-2 shadow-2xl hover:shadow-3xl transition-all duration-300 animate-slide-in-top relative overflow-hidden">
+            <div className="bg-gradient-to-r from-red-600 to-red-600/80 text-white p-4 sm:p-5 md:p-6 transform -skew-x-2 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
               {/* Subtle overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-red-800/20"></div>
               <div className="transform skew-x-2 relative z-10">
@@ -50,7 +84,7 @@ export function HeroSection({ t }: HeroSectionProps) {
             </div>
 
             {/* Glass morphism content box */}
-            <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white p-4 sm:p-5 md:p-6 rounded-2xl shadow-2xl animate-slide-in-bottom relative overflow-hidden">
+            <div className="bg-white/20 backdrop-blur-xl border border-white/30 text-white p-4 sm:p-5 md:p-6 rounded-2xl shadow-2xl relative overflow-hidden">
               {/* Glass reflection effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-2xl"></div>
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
@@ -75,7 +109,9 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">{t.hero.qualityEquipment}</span>
+                    <span className="font-medium text-white/90">
+                      {t.hero.qualityEquipment}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg
@@ -89,7 +125,9 @@ export function HeroSection({ t }: HeroSectionProps) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="font-medium text-white/90">{t.hero.expertService}</span>
+                    <span className="font-medium text-white/90">
+                      {t.hero.expertService}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <svg
@@ -130,12 +168,17 @@ export function HeroSection({ t }: HeroSectionProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom promotional text with liquid glass effect */}
-      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-20 animate-fade-in-bottom">
+      <motion.div
+        className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 4.5, duration: 1, ease: "easeOut" }}
+      >
         <div className="bg-white/15 backdrop-blur-xl border border-white/25 text-white p-3 sm:p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 max-w-xs sm:max-w-sm relative overflow-hidden mx-auto sm:mx-0">
           {/* Glass reflection effects */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-2xl"></div>
@@ -153,12 +196,14 @@ export function HeroSection({ t }: HeroSectionProps) {
                 <p className="text-base sm:text-lg font-bold drop-shadow-sm">
                   {t.hero.reachHeights}
                 </p>
-                <p className="text-xs sm:text-sm opacity-95">{t.hero.forProjects}</p>
+                <p className="text-xs sm:text-sm opacity-95">
+                  {t.hero.forProjects}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

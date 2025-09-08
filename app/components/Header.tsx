@@ -14,7 +14,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
 
   return (
     <motion.header 
-      className="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-white/95"
+      className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 sticky top-0 z-50 overflow-hidden border-b-4 border-red-600"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ 
@@ -22,20 +22,29 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
         ease: [0.25, 0.46, 0.45, 0.94] 
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      {/* Subtle diagonal accent */}
+      <motion.div
+        className="absolute top-0 right-0 w-1/6 h-full bg-red-600 opacity-20"
+        style={{ clipPath: "polygon(80% 0%, 100% 0%, 100% 100%, 60% 100%)" }}
+        initial={{ x: "100%" }}
+        animate={{ x: "0%" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-18">
           <motion.div 
-            className="flex items-center space-x-4"
+            className="flex items-center z-10"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             <motion.img
               src="/Logo.png"
               alt="Wolfe Lift Logo"
-              className="w-25 h-25 object-contain cursor-pointer"
+              className="h-10 md:h-14 w-auto object-contain cursor-pointer drop-shadow-lg"
               whileHover={{ 
-                rotate: 5,
-                scale: 1.05 
+                scale: 1.05,
+                filter: "drop-shadow(0 0 10px rgba(220, 38, 38, 0.5))"
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
@@ -43,7 +52,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
           </motion.div>
 
           <motion.nav 
-            className="hidden md:flex items-center space-x-8"
+            className="hidden md:flex items-center space-x-8 z-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ 
@@ -61,10 +70,10 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors relative"
+                className="text-white hover:text-red-600 font-bold uppercase text-sm tracking-wide transition-colors relative group"
                 whileHover={{ 
                   scale: 1.05,
-                  color: "#dc2626" 
+                  y: -1
                 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: -10 }}
@@ -75,17 +84,19 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
                 }}
               >
                 {item.text}
+                {/* Clean underline effect */}
                 <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600"
+                  className="absolute -bottom-1 left-0 w-0 h-1 bg-red-600"
+                  style={{ clipPath: "polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%)" }}
                   whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 />
               </motion.a>
             ))}
           </motion.nav>
 
           <motion.div 
-            className="flex items-center space-x-4"
+            className="flex items-center space-x-4 z-10"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -94,18 +105,20 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
               ease: [0.25, 0.46, 0.45, 0.94] 
             }}
           >
+            {/* Industrial language toggle - móvil optimizado */}
             <motion.div 
-              className="flex bg-gray-100 rounded-lg p-1"
+              className="flex bg-black border-2 border-white/20 p-1"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
               <motion.button
                 onClick={() => setLanguage("en")}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 md:px-3 py-2 md:py-1 text-sm font-black uppercase tracking-wider transition-colors relative min-h-[40px] md:min-h-auto ${
                   language === "en"
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "bg-red-600 text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
+                style={{ clipPath: "polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%)" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.1 }}
@@ -114,11 +127,12 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
               </motion.button>
               <motion.button
                 onClick={() => setLanguage("es")}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 md:px-3 py-2 md:py-1 text-sm font-black uppercase tracking-wider transition-colors relative min-h-[40px] md:min-h-auto ${
                   language === "es"
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "bg-red-600 text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
+                style={{ clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.1 }}
@@ -129,61 +143,51 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
 
             <motion.a
               href="tel:6264222271"
-              className="hidden sm:flex items-center text-red-600 font-bold text-lg hover:text-red-700 transition-colors group"
+              className="hidden sm:flex items-center text-white hover:text-red-600 font-bold text-sm uppercase tracking-wider transition-colors group"
               whileHover={{ 
                 scale: 1.05,
-                color: "#b91c1c" 
+                y: -1
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
               <motion.svg
-                className="w-5 h-5 mr-2"
+                className="w-4 h-4 mr-2"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 whileHover={{ 
-                  rotate: [0, -15, 15, 0],
+                  rotate: 5,
                   scale: 1.1 
                 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3 }}
               >
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </motion.svg>
-              <motion.span
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                {t.nav.phone}
-              </motion.span>
+              <span>{t.nav.phone}</span>
             </motion.a>
 
             <motion.a
               href="#contact"
-              className="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors relative overflow-hidden"
-              variants={buttonHover}
-              whileHover="hover"
-              whileTap="tap"
+              className="bg-red-600 hover:bg-red-700 text-white px-4 md:px-6 py-3 font-black text-xs md:text-sm uppercase tracking-widest relative overflow-hidden border-2 border-red-600 hover:border-red-700 hidden sm:block"
+              style={{ clipPath: "polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%)" }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              <motion.span className="relative z-10">
-                {t.nav.quote}
-              </motion.span>
+              <span className="relative z-10">{t.nav.quote}</span>
               <motion.div
-                className="absolute inset-0 bg-red-700"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ 
-                  scale: 1, 
-                  opacity: 1,
-                  transition: { duration: 0.3 }
-                }}
+                className="absolute inset-0 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "0%" }}
+                transition={{ duration: 0.3 }}
               />
             </motion.a>
 
             <motion.button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-lg"
+              className="md:hidden p-2 text-white border-2 border-white/20 bg-black hover:bg-red-600 transition-all"
               whileHover={{ 
-                scale: 1.05,
-                backgroundColor: "#f3f4f6" 
+                scale: 1.05
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
@@ -213,7 +217,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
-              className="md:hidden border-t border-gray-200 py-3 space-y-1 bg-white"
+              className="md:hidden border-t-2 border-red-600 py-4 space-y-2 bg-black shadow-2xl"
               variants={mobileMenuAnimation}
               initial="hidden"
               animate="visible"
@@ -229,15 +233,14 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  className={`block px-4 py-2 rounded-md transition-all ${
+                  className={`block px-6 py-4 border-l-4 transition-all font-bold uppercase text-base tracking-wider min-h-[56px] flex items-center ${
                     item.special 
-                      ? "text-red-600 font-bold hover:bg-red-50" 
-                      : "text-gray-700 hover:bg-gray-50 hover:text-red-600"
+                      ? "text-red-600 border-red-600 bg-red-600/10 hover:bg-red-600/20" 
+                      : "text-white border-white/20 hover:border-red-600 hover:text-red-600 hover:bg-white/5"
                   }`}
                   variants={mobileMenuItem}
                   whileHover={{ 
-                    x: 3,
-                    backgroundColor: item.special ? "#fef2f2" : "#f9fafb"
+                    x: 4
                   }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ 

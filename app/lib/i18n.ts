@@ -111,6 +111,9 @@ export const translations = {
       callNow: "Call Now",
       getQuote: "Get Quote",
     },
+    loading: {
+      elevatingProjects: "Elevating your projects...",
+    },
   },
   es: {
     nav: {
@@ -225,6 +228,9 @@ export const translations = {
     mobile: {
       callNow: "Llamar Ahora",
       getQuote: "Cotizar",
+    },
+    loading: {
+      elevatingProjects: "Elevando tus proyectos...",
     },
   },
 };

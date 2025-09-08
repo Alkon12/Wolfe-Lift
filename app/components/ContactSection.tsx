@@ -23,301 +23,367 @@ export function ContactSection({ t }: ContactSectionProps) {
   return (
     <motion.section 
       id="contact" 
-      className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden"
+      className="relative py-16 lg:py-24 bg-black overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfigMobile}
     >
-      {/* Animated background dots - optimized for mobile */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Industrial urban background with diagonal elements */}
+      <div className="absolute inset-0">
+        {/* Main gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800"></div>
+        
+        {/* Large diagonal red stripe from left */}
         <motion.div
-          className="absolute -top-4 -right-4 w-48 sm:w-72 h-48 sm:h-72 bg-red-100 rounded-full opacity-20"
-          animate={{
-            scale: [1, 1.05, 1],
-            x: [0, 10, 0],
-            y: [0, -5, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
+          className="absolute top-0 left-0 w-2/3 h-full bg-red-600"
+          style={{ clipPath: "polygon(0% 0%, 60% 0%, 30% 100%, 0% 100%)" }}
+          initial={{ x: "-100%" }}
+          whileInView={{ x: "0%" }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
         />
+        
+        {/* White industrial accent */}
         <motion.div
-          className="absolute -bottom-4 -left-4 w-64 sm:w-96 h-64 sm:h-96 bg-red-50 rounded-full opacity-20 sm:opacity-30"
-          animate={{
-            scale: [1, 0.95, 1],
-            x: [0, -8, 0],
-            y: [0, 8, 0],
+          className="absolute bottom-0 right-0 w-1/2 h-2/3 bg-white opacity-95"
+          style={{ clipPath: "polygon(40% 0%, 100% 0%, 100% 100%, 10% 100%)" }}
+          initial={{ y: "100%" }}
+          whileInView={{ y: "0%" }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+        />
+        
+        {/* Black accent overlay on white section */}
+        <motion.div
+          className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-black opacity-90"
+          style={{ clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 30% 100%)" }}
+          initial={{ y: "100%" }}
+          whileInView={{ y: "0%" }}
+          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+        />
+
+        {/* Industrial grid patterns */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute left-0 top-0 w-2/3 h-full" style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '30px 30px'
+          }}></div>
+          <div className="absolute right-0 bottom-0 w-1/2 h-2/3" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '25px 25px'
+          }}></div>
+        </div>
+
+        {/* Warning stripes */}
+        <motion.div
+          className="absolute top-1/3 left-1/4 w-16 h-32 bg-yellow-400 opacity-90"
+          style={{ 
+            clipPath: "polygon(0% 0%, 100% 5%, 100% 100%, 0% 95%)",
+            transform: "rotate(-15deg)"
+          }}
+          animate={{ 
+            rotate: [-15, -12, -15],
+            opacity: [0.9, 0.7, 0.9]
           }}
           transition={{
-            duration: 15,
+            duration: 3,
             repeat: Infinity,
             repeatType: "reverse",
-            ease: "easeInOut",
           }}
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Industrial header section */}
         <motion.div 
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-16 lg:mb-20"
           variants={fadeInUp}
         >
-          <motion.h2 
-            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4"
-            variants={fadeInUp}
+          {/* Emergency badge */}
+          <motion.div
+            className="inline-block mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
-            {t.contact.title}
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            <div className="bg-red-600 text-white px-8 py-3 font-black text-sm uppercase tracking-widest relative border-4 border-white">
+              <span className="relative z-10">EMERGENCY RENTALS AVAILABLE</span>
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-black"></div>
+            </div>
+          </motion.div>
+
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase leading-none mb-6 md:mb-8"
             variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <span className="block text-white">{t.contact.title.split(' ')[0]}</span>
+            <span className="block text-red-600 stroke-white stroke-2">{t.contact.title.split(' ').slice(1).join(' ')}</span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 max-w-3xl mx-auto font-bold uppercase tracking-wide"
+            variants={fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
           >
             {t.contact.subtitle}
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
+          {/* Left side - Industrial form */}
           <motion.div 
-            className="bg-white rounded-xl p-8 shadow-lg relative overflow-hidden"
+            className="relative"
             variants={fadeInLeft}
-            whileHover={{ 
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              transition: { duration: 0.3 }
-            }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Animated border gradient */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: focusedField ? 0.05 : 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            
-            <motion.form 
-              className="space-y-6 relative z-10"
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.div variants={staggerItem}>
-                <motion.label
-                  htmlFor="company"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                  animate={{ 
-                    color: focusedField === "company" ? "#dc2626" : "#374151",
-                    scale: focusedField === "company" ? 1.02 : 1 
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t.contact.form.name}
-                </motion.label>
-                <motion.input
-                  type="text"
-                  id="company"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  placeholder={t.contact.form.placeholderCompany}
-                  variants={formFieldAnimation}
-                  whileFocus="focus"
-                  onFocus={() => setFocusedField("company")}
-                  onBlur={() => setFocusedField(null)}
-                  onChange={(e) => handleInputChange("company", e.target.value)}
-                  style={{
-                    boxShadow: focusedField === "company" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
-                  }}
-                />
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <motion.label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                  animate={{ 
-                    color: focusedField === "phone" ? "#dc2626" : "#374151",
-                    scale: focusedField === "phone" ? 1.02 : 1 
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t.contact.form.phone}
-                </motion.label>
-                <motion.input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  placeholder={t.contact.form.placeholderPhone}
-                  variants={formFieldAnimation}
-                  whileFocus="focus"
-                  onFocus={() => setFocusedField("phone")}
-                  onBlur={() => setFocusedField(null)}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  style={{
-                    boxShadow: focusedField === "phone" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
-                  }}
-                />
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <motion.label
-                  htmlFor="equipment"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                  animate={{ 
-                    color: focusedField === "equipment" ? "#dc2626" : "#374151",
-                    scale: focusedField === "equipment" ? 1.02 : 1 
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t.contact.form.equipment}
-                </motion.label>
-                <motion.select
-                  id="equipment"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  variants={formFieldAnimation}
-                  whileFocus="focus"
-                  onFocus={() => setFocusedField("equipment")}
-                  onBlur={() => setFocusedField(null)}
-                  onChange={(e) => handleInputChange("equipment", e.target.value)}
-                  style={{
-                    boxShadow: focusedField === "equipment" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
-                  }}
-                >
-                  <option value="">{t.contact.form.selectEquipment}</option>
-                  <option value="12ft">{t.contact.form.lift12Option}</option>
-                  <option value="19ft">{t.contact.form.lift19Option}</option>
-                  <option value="26ft">{t.contact.form.lift26Option}</option>
-                  <option value="multiple">{t.contact.form.multipleOption}</option>
-                </motion.select>
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <motion.label
-                  htmlFor="date"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                  animate={{ 
-                    color: focusedField === "date" ? "#dc2626" : "#374151",
-                    scale: focusedField === "date" ? 1.02 : 1 
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t.contact.form.date}
-                </motion.label>
-                <motion.input
-                  type="date"
-                  id="date"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
-                  variants={formFieldAnimation}
-                  whileFocus="focus"
-                  onFocus={() => setFocusedField("date")}
-                  onBlur={() => setFocusedField(null)}
-                  onChange={(e) => handleInputChange("date", e.target.value)}
-                  style={{
-                    boxShadow: focusedField === "date" ? "0 0 0 3px rgba(239, 68, 68, 0.1)" : "none",
-                  }}
-                />
-              </motion.div>
-
-              <motion.button
-                type="submit"
-                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold text-lg relative overflow-hidden"
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <motion.span className="relative z-10">
-                  {t.contact.form.submit}
-                </motion.span>
-                <motion.div
-                  className="absolute inset-0 bg-red-700"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ 
-                    scale: 1, 
-                    opacity: 1,
-                    transition: { duration: 0.3 }
-                  }}
-                />
+            {/* Industrial frame - móvil optimizado */}
+            <div className="relative">
+              <div className="absolute -inset-2 md:-inset-4 bg-red-600 transform rotate-1"></div>
+              <div className="relative bg-black border-4 border-white p-4 md:p-8">
+                {/* Corner accents */}
+                <div className="absolute -top-2 -left-2 w-6 h-6 bg-red-600"></div>
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-white"></div>
                 
-                {/* Ripple effect on click */}
+                {/* Form title */}
                 <motion.div
-                  className="absolute inset-0 bg-white rounded-lg"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileTap={{ 
-                    scale: 1.5, 
-                    opacity: 0.2,
-                    transition: { duration: 0.6 }
-                  }}
-                />
-              </motion.button>
-            </motion.form>
+                  className="mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-black uppercase mb-2 tracking-wide">
+                    GET INSTANT QUOTE
+                  </h3>
+                  <p className="text-white/80 uppercase text-xs md:text-sm tracking-wider">
+                    RESPONSE IN UNDER 30 MINUTES
+                  </p>
+                </motion.div>
+            
+                <motion.form 
+                  className="space-y-4 md:space-y-6 relative z-10"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <motion.div variants={staggerItem}>
+                    <motion.label
+                      htmlFor="company"
+                      className="block text-sm font-black text-red-600 mb-2 uppercase tracking-wider"
+                      animate={{ 
+                        color: focusedField === "company" ? "#fff" : "#dc2626",
+                        scale: focusedField === "company" ? 1.05 : 1 
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.contact.form.name}
+                    </motion.label>
+                    <motion.input
+                      type="text"
+                      id="company"
+                      className="w-full px-4 py-4 bg-white/10 border-2 border-white/20 text-white placeholder-white/60 focus:border-red-600 focus:bg-white/20 transition-all font-medium uppercase tracking-wide min-h-[48px] text-base"
+                      placeholder={t.contact.form.placeholderCompany}
+                      variants={formFieldAnimation}
+                      whileFocus="focus"
+                      onFocus={() => setFocusedField("company")}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => handleInputChange("company", e.target.value)}
+                      style={{
+                        boxShadow: focusedField === "company" ? "0 0 0 3px rgba(239, 68, 68, 0.3)" : "none",
+                        clipPath: focusedField === "company" ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)" : "none"
+                      }}
+                    />
+                  </motion.div>
+
+                  <motion.div variants={staggerItem}>
+                    <motion.label
+                      htmlFor="phone"
+                      className="block text-sm font-black text-red-600 mb-2 uppercase tracking-wider"
+                      animate={{ 
+                        color: focusedField === "phone" ? "#fff" : "#dc2626",
+                        scale: focusedField === "phone" ? 1.05 : 1 
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.contact.form.phone}
+                    </motion.label>
+                    <motion.input
+                      type="tel"
+                      id="phone"
+                      className="w-full px-4 py-4 bg-white/10 border-2 border-white/20 text-white placeholder-white/60 focus:border-red-600 focus:bg-white/20 transition-all font-medium uppercase tracking-wide min-h-[48px] text-base"
+                      placeholder={t.contact.form.placeholderPhone}
+                      variants={formFieldAnimation}
+                      whileFocus="focus"
+                      onFocus={() => setFocusedField("phone")}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => handleInputChange("phone", e.target.value)}
+                      style={{
+                        boxShadow: focusedField === "phone" ? "0 0 0 3px rgba(239, 68, 68, 0.3)" : "none",
+                        clipPath: focusedField === "phone" ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)" : "none"
+                      }}
+                    />
+                  </motion.div>
+
+                  <motion.div variants={staggerItem}>
+                    <motion.label
+                      htmlFor="equipment"
+                      className="block text-sm font-black text-red-600 mb-2 uppercase tracking-wider"
+                      animate={{ 
+                        color: focusedField === "equipment" ? "#fff" : "#dc2626",
+                        scale: focusedField === "equipment" ? 1.05 : 1 
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.contact.form.equipment}
+                    </motion.label>
+                    <motion.select
+                      id="equipment"
+                      className="w-full px-4 py-4 bg-white/10 border-2 border-white/20 text-white focus:border-red-600 focus:bg-white/20 transition-all font-medium uppercase tracking-wide min-h-[48px] text-base"
+                      variants={formFieldAnimation}
+                      whileFocus="focus"
+                      onFocus={() => setFocusedField("equipment")}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => handleInputChange("equipment", e.target.value)}
+                      style={{
+                        boxShadow: focusedField === "equipment" ? "0 0 0 3px rgba(239, 68, 68, 0.3)" : "none",
+                        clipPath: focusedField === "equipment" ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)" : "none"
+                      }}
+                    >
+                      <option value="" className="text-black">{t.contact.form.selectEquipment}</option>
+                      <option value="12ft" className="text-black">{t.contact.form.lift12Option}</option>
+                      <option value="19ft" className="text-black">{t.contact.form.lift19Option}</option>
+                      <option value="26ft" className="text-black">{t.contact.form.lift26Option}</option>
+                      <option value="multiple" className="text-black">{t.contact.form.multipleOption}</option>
+                    </motion.select>
+                  </motion.div>
+
+                  <motion.div variants={staggerItem}>
+                    <motion.label
+                      htmlFor="date"
+                      className="block text-sm font-black text-red-600 mb-2 uppercase tracking-wider"
+                      animate={{ 
+                        color: focusedField === "date" ? "#fff" : "#dc2626",
+                        scale: focusedField === "date" ? 1.05 : 1 
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.contact.form.date}
+                    </motion.label>
+                    <motion.input
+                      type="date"
+                      id="date"
+                      className="w-full px-4 py-4 bg-white/10 border-2 border-white/20 text-white focus:border-red-600 focus:bg-white/20 transition-all font-medium uppercase tracking-wide min-h-[48px] text-base"
+                      variants={formFieldAnimation}
+                      whileFocus="focus"
+                      onFocus={() => setFocusedField("date")}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => handleInputChange("date", e.target.value)}
+                      style={{
+                        boxShadow: focusedField === "date" ? "0 0 0 3px rgba(239, 68, 68, 0.3)" : "none",
+                        clipPath: focusedField === "date" ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)" : "none"
+                      }}
+                    />
+                  </motion.div>
+
+                  <motion.button
+                    type="submit"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-4 md:py-5 font-black text-base md:text-lg uppercase tracking-widest relative overflow-hidden group border-2 border-red-600 hover:border-red-700 transition-all duration-200 mt-6 md:mt-8 min-h-[56px] flex items-center justify-center"
+                    style={{ clipPath: "polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%)" }}
+                    variants={buttonHover}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <motion.span className="relative z-10">
+                      {t.contact.form.submit}
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+                    />
+                    
+                    {/* Industrial corner accents */}
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-white"></div>
+                    <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-black"></div>
+                  </motion.button>
+                </motion.form>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Right side - Contact info and emergency call */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
             variants={fadeInRight}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           >
+            {/* Emergency contact card */}
             <motion.div 
-              className="flex items-start space-x-4 group"
+              className="bg-red-600 border-4 border-white p-6 md:p-8 relative overflow-hidden group cursor-pointer"
               variants={staggerItem}
-              whileHover={{ x: 5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.div 
-                className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0 relative overflow-hidden"
-                whileHover={{ 
-                  scale: 1.1,
-                  boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.svg
-                  className="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  whileHover={{ 
-                    rotate: [0, -10, 10, 0],
-                    scale: 1.1 
-                  }}
-                  transition={{ duration: 0.5 }}
+              {/* Corner accents */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 bg-black"></div>
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-yellow-400"></div>
+              
+              {/* Diagonal accent */}
+              <div 
+                className="absolute top-0 right-0 w-1/3 h-full bg-black opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                style={{ clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 30% 100%)" }}
+              ></div>
+
+              <div className="relative z-10">
+                <motion.div 
+                  className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center mb-6 group-hover:bg-black group-hover:border-white transition-all duration-300"
                 >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </motion.svg>
+                  <motion.svg
+                    className="w-8 h-8 text-red-600 group-hover:text-white transition-colors duration-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    whileHover={{ 
+                      rotate: [0, -10, 10, 0],
+                      scale: 1.1 
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </motion.svg>
+                </motion.div>
                 
-                {/* Pulse effect */}
-                <motion.div
-                  className="absolute inset-0 bg-red-500 rounded-lg"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0, 0.3, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                />
-              </motion.div>
-              <div>
                 <motion.h3 
-                  className="text-lg font-semibold text-gray-900 group-hover:text-red-600 transition-colors"
+                  className="text-white text-xl md:text-2xl lg:text-3xl font-black uppercase mb-3 tracking-wide"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
                   {t.contact.callUsNow}
                 </motion.h3>
+                
                 <motion.a
                   href="tel:6264222271"
-                  className="text-2xl font-bold text-red-600 hover:text-red-700 block"
-                  whileHover={{ 
-                    scale: 1.05,
-                    color: "#b91c1c" 
-                  }}
+                  className="text-white text-2xl md:text-3xl lg:text-4xl font-black block mb-3 hover:text-yellow-400 transition-colors duration-200 min-h-[48px] flex items-center"
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                 >
                   {t.nav.phone}
                 </motion.a>
+                
                 <motion.p 
-                  className="text-gray-600"
-                  initial={{ opacity: 0.7 }}
+                  className="text-white/90 uppercase text-sm tracking-wider font-medium"
+                  initial={{ opacity: 0.8 }}
                   whileHover={{ opacity: 1 }}
                 >
                   {t.contact.emergencyRentals}
@@ -325,38 +391,44 @@ export function ContactSection({ t }: ContactSectionProps) {
               </div>
             </motion.div>
 
-
+            {/* Service area card */}
             <motion.div 
-              className="bg-white rounded-lg p-6 shadow-sm relative overflow-hidden"
+              className="bg-white border-4 border-black p-6 md:p-8 relative overflow-hidden group"
               variants={staggerItem}
               whileHover={{ 
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
-                y: -2,
+                y: -3,
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
               }}
               transition={{ duration: 0.3 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-red-50 to-transparent opacity-0"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
+              {/* Corner accents */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-600"></div>
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-black"></div>
+              
+              {/* Diagonal accent */}
+              <div 
+                className="absolute bottom-0 left-0 w-1/4 h-full bg-red-600 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
+                style={{ clipPath: "polygon(0% 0%, 70% 0%, 40% 100%, 0% 100%)" }}
+              ></div>
               
               <motion.h3 
-                className="text-lg font-semibold text-gray-900 mb-3 relative z-10"
+                className="text-black text-xl md:text-2xl lg:text-3xl font-black uppercase mb-4 tracking-wide relative z-10"
                 whileHover={{ color: "#dc2626" }}
                 transition={{ duration: 0.2 }}
               >
                 {t.contact.serviceArea}
               </motion.h3>
+              
               <motion.p 
-                className="text-gray-600 mb-4 relative z-10"
+                className="text-gray-700 mb-6 relative z-10 font-medium uppercase text-sm tracking-wider"
                 initial={{ opacity: 0.8 }}
                 whileHover={{ opacity: 1 }}
               >
                 {t.contact.serviceAreaDesc}
               </motion.p>
+              
               <motion.div 
-                className="grid grid-cols-2 gap-2 text-sm text-gray-600 relative z-10"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-sm relative z-10"
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
@@ -368,20 +440,69 @@ export function ContactSection({ t }: ContactSectionProps) {
                     whileHover={{ 
                       color: "#dc2626",
                       x: 5,
-                      fontWeight: "600"
+                      fontWeight: "900"
                     }}
                     transition={{ duration: 0.2 }}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-black font-bold uppercase tracking-wide border-l-2 border-red-600 pl-3 hover:border-black min-h-[40px] flex items-center"
                   >
-                    • {city}
+                    {city}
                   </motion.div>
                 ))}
               </motion.div>
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Bottom urgent action bar */}
+        <motion.div
+          className="mt-12 md:mt-16 lg:mt-20 relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <div className="bg-yellow-400 border-4 border-black p-6 md:p-8 relative overflow-hidden">
+            <div 
+              className="absolute top-0 left-0 w-1/3 h-full bg-black opacity-90"
+              style={{ clipPath: "polygon(0% 0%, 70% 0%, 50% 100%, 0% 100%)" }}
+            ></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+              <div className="text-center md:text-left">
+                <h3 className="text-black text-2xl md:text-3xl lg:text-4xl font-black uppercase mb-2">
+                  NEED IT TODAY?
+                </h3>
+                <p className="text-black/80 font-black uppercase tracking-wide text-base md:text-lg">
+                  SAME DAY DELIVERY AVAILABLE
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <motion.a
+                  href="tel:6264222271"
+                  className="bg-red-600 hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 font-black text-base md:text-lg uppercase tracking-widest relative overflow-hidden group border-2 border-red-600 hover:border-red-700 transition-all duration-200 min-h-[48px] flex items-center justify-center"
+                  style={{ clipPath: "polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%)" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">CALL NOW</span>
+                  <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                </motion.a>
+                
+                <motion.a
+                  href="#contact"
+                  className="bg-black hover:bg-gray-800 text-white px-6 md:px-8 py-3 md:py-4 font-black text-base md:text-lg uppercase tracking-widest relative overflow-hidden group border-2 border-black hover:border-gray-800 transition-all duration-200 min-h-[48px] flex items-center justify-center"
+                  style={{ clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">GET QUOTE</span>
+                  <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                </motion.a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
 }
-

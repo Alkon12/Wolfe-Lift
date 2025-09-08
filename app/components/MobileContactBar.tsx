@@ -10,7 +10,7 @@ interface MobileContactBarProps {
 export function MobileContactBar({ t }: MobileContactBarProps) {
   return (
     <motion.div 
-      className="fixed bottom-0 left-0 right-0 bg-red-600 text-white p-4 flex justify-between items-center sm:hidden z-40 shadow-lg"
+      className="fixed bottom-0 left-0 right-0 bg-red-600 text-white p-4 flex justify-between items-center sm:hidden z-40 shadow-lg safe-area-padding-bottom"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ 
@@ -37,7 +37,7 @@ export function MobileContactBar({ t }: MobileContactBarProps) {
 
       <motion.a
         href="tel:6264222271"
-        className="flex items-center space-x-2 font-semibold relative z-10"
+        className="flex items-center space-x-2 font-semibold relative z-10 min-h-[44px]"
         whileHover={{ scale: 1.05 }}
         whileTap={{ 
           scale: 0.95,
@@ -72,7 +72,7 @@ export function MobileContactBar({ t }: MobileContactBarProps) {
       
       <motion.a
         href="#contact"
-        className="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold relative overflow-hidden z-10"
+        className="bg-white text-red-600 px-4 py-3 rounded-lg font-semibold relative overflow-hidden z-10 min-h-[44px] flex items-center justify-center"
         variants={buttonHover}
         whileHover="hover"
         whileTap="tap"

@@ -10,6 +10,7 @@ export interface MediaItem {
   title: string;
   description: string;
   equipment: string;
+  poster?: string; // Optional poster image for videos
 }
 
 interface VerticalMediaGalleryProps {
@@ -208,6 +209,7 @@ export function VerticalMediaGallery({ t, mediaItems }: VerticalMediaGalleryProp
                     <video
                       ref={videoRef}
                       src={currentMedia.src}
+                      poster={currentMedia.poster}
                       className="w-full h-full object-cover cursor-pointer"
                       loop
                       muted
@@ -386,6 +388,7 @@ export function VerticalMediaGallery({ t, mediaItems }: VerticalMediaGalleryProp
                       {item.type === 'video' ? (
                         <video
                           src={item.src}
+                          poster={item.poster}
                           className="w-full h-full object-cover"
                           muted
                           preload="metadata"

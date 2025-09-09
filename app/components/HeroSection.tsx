@@ -314,7 +314,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                             FREE PICKUP
                           </p>
                           <p className="font-bold text-lg uppercase">
-                            Call: 626 999-2906
+                            Call: 626-422-2271
                           </p>
                         </div>
                       </div>

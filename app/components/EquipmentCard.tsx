@@ -49,7 +49,7 @@ export function EquipmentCard({
       ></div>
 
       <motion.div 
-        className="relative w-full h-40 md:h-48 mb-4 md:mb-6 overflow-hidden bg-gray-800 border-2 border-white/10"
+        className="relative w-full aspect-square mb-4 md:mb-6 overflow-hidden bg-gray-800 border-2 border-white/10"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >

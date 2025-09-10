@@ -70,7 +70,7 @@ export function HeroSection({ t }: HeroSectionProps) {
       <div className="relative z-20 min-h-screen">
         {/* Estructura para móvil */}
         <div className="lg:hidden">
-          <div className="min-h-screen flex flex-col justify-center px-4 py-8">
+          <div className="min-h-screen flex flex-col justify-center px-4 py-8 pb-38">
             {/* Imagen centrada arriba */}
             <motion.div
               className="flex justify-center mb-8"
@@ -85,8 +85,8 @@ export function HeroSection({ t }: HeroSectionProps) {
                     alt="Scissor Lift"
                     className="w-full h-auto filter brightness-110 contrast-125"
                   />
-                  
-                  {/* Logo en móvil - más pequeño */}
+
+                  {/* Logo en móvil - más grande */}
                   <motion.div
                     className="absolute -top-2 -right-2 z-40"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -96,7 +96,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                     <img
                       src="/LogoSinFondo.png"
                       alt="Wolfe Lift Rentals"
-                      className="w-16 h-16 object-contain"
+                      className="w-24 h-24 object-contain"
                       style={{
                         filter: `
                           drop-shadow(2px 0 0 white) 
@@ -114,7 +114,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
             {/* Contenido de texto centrado */}
             <motion.div
-              className="text-center space-y-6"
+              className="text-center space-y-6 relative z-40"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
@@ -127,7 +127,20 @@ export function HeroSection({ t }: HeroSectionProps) {
                 transition={{ delay: 1, duration: 0.6 }}
               >
                 <span className="block text-white">{t.hero.mainTitle1}</span>
-                <span className="block text-red-600">{t.hero.mainTitle2}</span>
+                <span
+                  className="block text-red-500"
+                  style={{
+                    textShadow: `
+                      1px 1px 0 black,
+                      -1px -1px 0 black,
+                      1px -1px 0 black,
+                      -1px 1px 0 black,
+                      0 0 4px rgba(0,0,0,0.5)
+                    `,
+                  }}
+                >
+                  {t.hero.mainTitle2}
+                </span>
                 <span className="block text-white">{t.hero.mainTitle3}</span>
               </motion.h1>
 
@@ -143,7 +156,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
               {/* Botones CTA */}
               <motion.div
-                className="flex flex-col gap-4 pt-4 px-4"
+                className="flex flex-col gap-4 pt-6 px-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4, duration: 0.6 }}
@@ -164,7 +177,6 @@ export function HeroSection({ t }: HeroSectionProps) {
                   {t.hero.cta2}
                 </motion.a>
               </motion.div>
-
             </motion.div>
           </div>
         </div>
@@ -224,7 +236,6 @@ export function HeroSection({ t }: HeroSectionProps) {
                 >
                   {t.hero.subheadline}
                 </motion.p>
-
 
                 {/* CTA Buttons */}
                 <motion.div

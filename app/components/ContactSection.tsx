@@ -125,7 +125,20 @@ export function ContactSection({ t }: ContactSectionProps) {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <span className="block text-white">{t.contact.title.split(' ')[0]}</span>
-            <span className="block text-red-600 stroke-white stroke-2">{t.contact.title.split(' ').slice(1).join(' ')}</span>
+            <span 
+              className="block text-red-500 stroke-white stroke-2 lg:text-red-600" 
+              style={{
+                textShadow: `
+                  1px 1px 0 black,
+                  -1px -1px 0 black,
+                  1px -1px 0 black,
+                  -1px 1px 0 black,
+                  0 0 4px rgba(0,0,0,0.5)
+                `
+              }}
+            >
+              {t.contact.title.split(' ').slice(1).join(' ')}
+            </span>
           </motion.h2>
           
           <motion.p 
@@ -468,10 +481,32 @@ export function ContactSection({ t }: ContactSectionProps) {
             
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
               <div className="text-center md:text-left">
-                <h3 className="text-black text-2xl md:text-3xl lg:text-4xl font-black uppercase mb-2">
+                <h3 
+                  className="text-black text-2xl md:text-3xl lg:text-4xl font-black uppercase mb-2"
+                  style={{
+                    textShadow: `
+                      1px 1px 0 #fbbf24,
+                      -1px -1px 0 #fbbf24,
+                      1px -1px 0 #fbbf24,
+                      -1px 1px 0 #fbbf24,
+                      0 0 4px rgba(251, 191, 36, 0.3)
+                    `
+                  }}
+                >
                   NEED IT TODAY?
                 </h3>
-                <p className="text-black/80 font-black uppercase tracking-wide text-base md:text-lg">
+                <p 
+                  className="text-black/80 font-black uppercase tracking-wide text-base md:text-lg"
+                  style={{
+                    textShadow: `
+                      1px 1px 0 #fbbf24,
+                      -1px -1px 0 #fbbf24,
+                      1px -1px 0 #fbbf24,
+                      -1px 1px 0 #fbbf24,
+                      0 0 4px rgba(251, 191, 36, 0.3)
+                    `
+                  }}
+                >
                   SAME DAY DELIVERY AVAILABLE
                 </p>
               </div>

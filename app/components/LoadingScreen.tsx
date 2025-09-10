@@ -207,6 +207,9 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
               </motion.h2>
               <motion.p 
                 className="text-red-600 font-bold uppercase tracking-wider text-sm md:text-lg"
+                style={{
+                  textShadow: "1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black"
+                }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 0.5 }}

@@ -96,7 +96,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                     <img
                       src="/LogoSinFondo.png"
                       alt="Wolfe Lift Rentals"
-                      className="w-24 h-24 object-contain"
+                      className="w-32 h-32 object-contain"
                       style={{
                         filter: `
                           drop-shadow(2px 0 0 white) 

@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: "Home",
       equipment: "Equipment",
+      gallery: "Gallery",
       services: "Services",
       contact: "Contact",
       phone: "(626) 422-2271",
@@ -119,6 +120,7 @@ export const translations = {
     nav: {
       home: "Inicio",
       equipment: "Equipos",
+      gallery: "Galería",
       services: "Servicios",
       contact: "Contacto",
       phone: "(626) 422-2271",

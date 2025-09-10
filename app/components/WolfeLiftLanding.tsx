@@ -36,11 +36,21 @@ export function WolfeLiftLanding() {
       {!isLoading && (
         <div className="min-h-screen bg-gray-50">
           <Header language={language} setLanguage={setLanguage} t={t} />
-          <HeroSection t={t} />
-          <EquipmentSection t={t} />
-          <VerticalMediaGallery t={t} mediaItems={mediaData} />
-          <WhyChooseSection t={t} />
-          <ContactSection t={t} />
+          <div id="home">
+            <HeroSection t={t} />
+          </div>
+          <div id="equipment">
+            <EquipmentSection t={t} />
+          </div>
+          <div id="gallery">
+            <VerticalMediaGallery t={t} mediaItems={mediaData} />
+          </div>
+          <div id="services">
+            <WhyChooseSection t={t} />
+          </div>
+          <div id="contact">
+            <ContactSection t={t} />
+          </div>
           <Footer t={t} />
           <MobileContactBar t={t} />
         </div>

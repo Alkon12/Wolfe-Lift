@@ -64,6 +64,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
             {[
               { href: "#home", text: t.nav.home },
               { href: "#equipment", text: t.nav.equipment },
+              { href: "#gallery", text: t.nav.gallery },
               { href: "#services", text: t.nav.services },
               { href: "#contact", text: t.nav.contact },
             ].map((item, index) => (
@@ -226,6 +227,7 @@ export function Header({ language, setLanguage, t }: HeaderProps) {
               {[
                 { href: "#home", text: t.nav.home, special: false },
                 { href: "#equipment", text: t.nav.equipment, special: false },
+                { href: "#gallery", text: t.nav.gallery, special: false },
                 { href: "#services", text: t.nav.services, special: false },
                 { href: "#contact", text: t.nav.contact, special: false },
                 { href: "tel:6264222271", text: t.nav.phone, special: true },

@@ -2,7 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { TranslationKey } from "~/lib/i18n";
 import { EquipmentCard } from "./EquipmentCard";
+import { SpecsModal } from "./SpecsModal";
 import { equipmentData } from "~/lib/equipmentData";
+import { useSpecsModal } from "~/hooks/useSpecsModal";
 import {
   fadeInUp,
   staggerContainer,
@@ -15,6 +17,8 @@ interface EquipmentSectionProps {
 }
 
 export function EquipmentSection({ t }: EquipmentSectionProps) {
+  const { isOpen, modalData, openModal, closeModal } = useSpecsModal();
+
   return (
     <motion.section
       id="equipment"
@@ -104,7 +108,7 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -117,6 +121,8 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
               rate={t.services.lift12.rate}
               quoteText={t.nav.quote}
               image={equipmentData["12"].image}
+              specSheet={equipmentData["12"].specSheet}
+              onSpecsClick={openModal}
             />
           </motion.div>
           <motion.div variants={staggerItem}>
@@ -126,6 +132,8 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
               rate={t.services.lift19.rate}
               quoteText={t.nav.quote}
               image={equipmentData["19"].image}
+              specSheet={equipmentData["19"].specSheet}
+              onSpecsClick={openModal}
             />
           </motion.div>
           <motion.div variants={staggerItem}>
@@ -135,6 +143,19 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
               rate={t.services.lift26.rate}
               quoteText={t.nav.quote}
               image={equipmentData["26"].image}
+              specSheet={equipmentData["26"].specSheet}
+              onSpecsClick={openModal}
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <EquipmentCard
+              title={t.services.lift32.title}
+              specs={t.services.lift32.specs}
+              rate={t.services.lift32.rate}
+              quoteText={t.nav.quote}
+              image={equipmentData["32"].image}
+              specSheet={equipmentData["32"].specSheet}
+              onSpecsClick={openModal}
             />
           </motion.div>
         </motion.div>
@@ -185,7 +206,7 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
                 </div>
                 <div className="text-left">
                   <p className="text-white font-black text-sm uppercase tracking-wider">
-                    FREE
+                    FAST
                   </p>
                   <p className="text-white/80 text-xs uppercase">DELIVERY</p>
                 </div>
@@ -216,7 +237,16 @@ export function EquipmentSection({ t }: EquipmentSectionProps) {
           </div>
         </motion.div>
       </div>
+
+      {/* Single SpecsModal instance */}
+      {modalData && (
+        <SpecsModal
+          isOpen={isOpen}
+          onClose={closeModal}
+          specSheetUrl={modalData.specSheetUrl}
+          title={modalData.title}
+        />
+      )}
     </motion.section>
   );
 }
-

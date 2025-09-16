@@ -165,7 +165,7 @@ export function Footer({ t }: FooterProps) {
                   24/7 Emergency
                 </p>
                 <p className="text-xs uppercase tracking-wider">
-                  Los Angeles Area
+                  Los Angeles and surrounding areas
                 </p>
               </div>
             </motion.div>
@@ -193,11 +193,7 @@ export function Footer({ t }: FooterProps) {
             initial="hidden"
             animate="visible"
           >
-            {[
-              t.footer.links.terms,
-              t.footer.links.privacy,
-              t.footer.license,
-            ].map((text, index) => (
+            {[].map((text, index) => (
               <motion.a
                 key={index}
                 href="#"

@@ -31,22 +31,28 @@ export const translations = {
       lift12: {
         title: "12ft Scissor Lift",
         specs: "12ft weight capacity 500 lb",
-        rate: "Get Quote Now",
+        rate: "Our Rates are",
       },
       lift19: {
         title: "19ft Scissor Lift",
         specs: "19ft weight capacity 500 lb",
-        rate: "Get Quote Now",
+        rate: "Our Rates are",
       },
       lift26: {
         title: "26ft Scissor Lift",
         specs: "26ft weight capacity 750 lb",
-        rate: "Get Quote Now",
+        rate: "Our Rates are",
+      },
+      lift32: {
+        title: "32ft Scissor Lift",
+        specs: "32ft weight capacity 1000 lb",
+        rate: "Our Rates are",
       },
     },
     whyChoose: {
       title: "Why Choose Wolfe Lift?",
-      subtitle: "Trusted by contractors throughout Los Angeles County for over 15 years",
+      subtitle:
+        "Trusted by contractors throughout Los Angeles County for over 15 years",
       point1: {
         title: "Same-Day Delivery",
         desc: "Equipment delivered to your job site within hours",
@@ -77,7 +83,8 @@ export const translations = {
         placeholderPhone: "(626) 422-2271",
         selectEquipment: "Select Equipment",
         lift19Option: "19' Scissor Lift",
-        lift26Option: "26' Scissor Lift", 
+        lift26Option: "26' Scissor Lift",
+        lift32Option: "32' Scissor Lift",
         lift12Option: "12ft Scissor Lift",
         multipleOption: "Multiple Units",
       },
@@ -89,7 +96,8 @@ export const translations = {
       emergencyRentals: "Available for emergency rentals",
       visitLocation: "Visit Our Location",
       serviceArea: "Service Area",
-      serviceAreaDesc: "We proudly serve Los Angeles County and surrounding areas including:",
+      serviceAreaDesc:
+        "We proudly serve Los Angeles County and surrounding areas including:",
     },
     footer: {
       tagline: "Professional Equipment. Reliable Service. Fair Prices.",
@@ -99,7 +107,7 @@ export const translations = {
       equipmentRentals: "Equipment Rentals",
       contactUs: "Contact Us",
       contactTitle: "Contact",
-      copyright: "© 2024 Wolfe Lift Rentals & Transport. All rights reserved.",
+      copyright: "© 2011 Wolfe Lift Rentals & Transport. All rights reserved.",
       license: "CA License #123456",
       links: {
         about: "About Us",
@@ -149,22 +157,28 @@ export const translations = {
       lift12: {
         title: "Plataforma de 12ft",
         specs: "12ft capacidad de peso 500 lb",
-        rate: "Cotizar Ahora",
+        rate: "Nuestras Tarifas son",
       },
       lift19: {
         title: "Plataforma de 19ft",
         specs: "19ft capacidad de peso 500 lb",
-        rate: "Cotizar Ahora",
+        rate: "Nuestras Tarifas son",
       },
       lift26: {
         title: "Plataforma de 26ft",
         specs: "26ft capacidad de peso 750 lb",
-        rate: "Cotizar Ahora",
+        rate: "Nuestras Tarifas son",
+      },
+      lift32: {
+        title: "Plataforma de 32ft",
+        specs: "32ft capacidad de peso 1000 lb",
+        rate: "Nuestras Tarifas son",
       },
     },
     whyChoose: {
       title: "¿Por Qué Elegir Wolfe Lift?",
-      subtitle: "Confianza de contratistas del Condado de Los Ángeles por más de 15 años",
+      subtitle:
+        "Confianza de contratistas del Condado de Los Ángeles por más de 15 años",
       point1: {
         title: "Entrega el Mismo Día",
         desc: "Equipo entregado a su obra en horas",
@@ -197,6 +211,7 @@ export const translations = {
         selectEquipment: "Seleccionar Equipo",
         lift19Option: "Plataforma de 19'",
         lift26Option: "Plataforma de 26'",
+        lift32Option: "Plataforma de 32'",
         lift12Option: "Plataforma de 12ft",
         multipleOption: "Múltiples Unidades",
       },
@@ -208,7 +223,8 @@ export const translations = {
       emergencyRentals: "Disponible para rentas de emergencia",
       visitLocation: "Visite Nuestra Ubicación",
       serviceArea: "Área de Servicio",
-      serviceAreaDesc: "Servimos con orgullo el Condado de Los Ángeles y áreas circundantes incluyendo:",
+      serviceAreaDesc:
+        "Servimos con orgullo el Condado de Los Ángeles y áreas circundantes incluyendo:",
     },
     footer: {
       tagline: "Equipo Profesional. Servicio Confiable. Precios Justos.",
@@ -218,7 +234,8 @@ export const translations = {
       equipmentRentals: "Renta de Equipos",
       contactUs: "Contáctanos",
       contactTitle: "Contacto",
-      copyright: "© 2024 Wolfe Lift Rentals & Transport. Todos los derechos reservados.",
+      copyright:
+        "© 2024 Wolfe Lift Rentals & Transport. Todos los derechos reservados.",
       license: "Licencia CA #123456",
       links: {
         about: "Nosotros",
@@ -239,4 +256,3 @@ export const translations = {
 
 export type Language = keyof typeof translations;
 export type TranslationKey = typeof translations.en;
-

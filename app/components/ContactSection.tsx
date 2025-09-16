@@ -277,6 +277,7 @@ export function ContactSection({ t }: ContactSectionProps) {
                       <option value="12ft" className="text-black">{t.contact.form.lift12Option}</option>
                       <option value="19ft" className="text-black">{t.contact.form.lift19Option}</option>
                       <option value="26ft" className="text-black">{t.contact.form.lift26Option}</option>
+                      <option value="32ft" className="text-black">{t.contact.form.lift32Option}</option>
                       <option value="multiple" className="text-black">{t.contact.form.multipleOption}</option>
                     </motion.select>
                   </motion.div>

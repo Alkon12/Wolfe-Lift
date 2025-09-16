@@ -40,7 +40,6 @@ export function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
-
       <div className="relative z-20 min-h-screen">
         {/* Estructura para móvil */}
         <div className="lg:hidden">
@@ -257,7 +256,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                   <div className="absolute -inset-4 bg-gradient-to-br from-red-600/20 to-transparent transform rotate-3"></div>
                   <div className="relative bg-black border-4 border-white/20 p-6">
                     <img
-                      src="/Hero.png"
+                      src="/Hero.jpeg"
                       alt="Scissor Lift"
                       className="w-full h-auto filter brightness-110 contrast-125"
                     />
@@ -295,9 +294,6 @@ export function HeroSection({ t }: HeroSectionProps) {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="bg-black/80 border-2 border-red-600 p-4">
                         <div className="text-white">
-                          <p className="font-black uppercase text-sm tracking-wider text-red-600 mb-1">
-                            FREE PICKUP
-                          </p>
                           <p className="font-bold text-lg uppercase">
                             Call: 626-422-2271
                           </p>

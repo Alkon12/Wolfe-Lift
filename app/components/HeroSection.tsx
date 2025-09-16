@@ -40,32 +40,6 @@ export function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* FAST DELIVERY badge - top right */}
-      <motion.div
-        className="absolute top-6 right-6 z-30 hidden lg:block"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.4, ease: "backOut" }}
-      >
-        <div className="bg-red-600 text-white px-4 py-2 rounded-full font-black text-sm uppercase tracking-wider shadow-2xl border-2 border-white/20">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-              <svg
-                className="w-2 h-2 text-red-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <span>FAST DELIVERY</span>
-          </div>
-        </div>
-      </motion.div>
 
       <div className="relative z-20 min-h-screen">
         {/* Estructura para móvil */}
@@ -88,7 +62,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                   {/* Logo en móvil - más grande */}
                   <motion.div
-                    className="absolute -top-2 -right-2 z-40"
+                    className="absolute -top-12 -right-6 z-40"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1, duration: 0.6 }}
@@ -96,7 +70,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                     <img
                       src="/LogoSinFondo.png"
                       alt="Wolfe Lift Rentals"
-                      className="w-32 h-32 object-contain"
+                      className="w-52 h-52 object-contain"
                       style={{
                         filter: `
                           drop-shadow(2px 0 0 white) 
@@ -290,7 +264,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                     {/* Logo como sticker en la esquina superior derecha */}
                     <motion.div
-                      className="absolute -top-3 -right-3 z-40"
+                      className="absolute -top-38 -right-28 z-0"
                       initial={{ opacity: 0, scale: 0.8, y: -20 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
@@ -299,7 +273,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                         <img
                           src="/LogoSinFondo.png"
                           alt="Wolfe Lift Rentals"
-                          className="w-32 h-32 object-contain relative z-10"
+                          className="w-96 h-96 object-contain relative z-10"
                           style={{
                             filter: `
                               drop-shadow(3px 0 0 white) 

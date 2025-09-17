@@ -21,6 +21,7 @@ export function ContactSection({ t }: ContactSectionProps) {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     company: "",
+    fullName: "",
     phone: "",
     equipment: "",
     date: "",
@@ -53,6 +54,7 @@ export function ContactSection({ t }: ContactSectionProps) {
         "template_5zvoqnp", // Necesitarás crear un template en EmailJS
         {
           company: formData.company,
+          fullName: formData.fullName,
           phone: formData.phone,
           equipment: formData.equipment,
           date: formData.date,
@@ -62,7 +64,7 @@ export function ContactSection({ t }: ContactSectionProps) {
       );
 
       setSubmitStatus("success");
-      setFormData({ company: "", phone: "", equipment: "", date: "" });
+      setFormData({ company: "", fullName: "", phone: "", equipment: "", date: "" });
     } catch (error) {
       setSubmitStatus("error");
       console.error("Error sending email:", error);
@@ -280,6 +282,45 @@ export function ContactSection({ t }: ContactSectionProps) {
                             : "none",
                         clipPath:
                           focusedField === "company"
+                            ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)"
+                            : "none",
+                      }}
+                    />
+                  </motion.div>
+
+                  <motion.div variants={staggerItem}>
+                    <motion.label
+                      htmlFor="fullName"
+                      className="block text-sm font-black text-red-600 mb-2 uppercase tracking-wider"
+                      animate={{
+                        color: focusedField === "fullName" ? "#fff" : "#dc2626",
+                        scale: focusedField === "fullName" ? 1.05 : 1,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      FULL NAME
+                    </motion.label>
+                    <motion.input
+                      type="text"
+                      id="fullName"
+                      className="w-full px-4 py-4 bg-white/10 border-2 border-white/20 text-white placeholder-white/60 focus:border-red-600 focus:bg-white/20 transition-all font-medium uppercase tracking-wide min-h-[48px] text-base"
+                      placeholder="ENTER YOUR FULL NAME"
+                      variants={formFieldAnimation}
+                      whileFocus="focus"
+                      onFocus={() => setFocusedField("fullName")}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) =>
+                        handleInputChange("fullName", e.target.value)
+                      }
+                      value={formData.fullName}
+                      required
+                      style={{
+                        boxShadow:
+                          focusedField === "fullName"
+                            ? "0 0 0 3px rgba(239, 68, 68, 0.3)"
+                            : "none",
+                        clipPath:
+                          focusedField === "fullName"
                             ? "polygon(0% 0%, 95% 0%, 100% 100%, 5% 100%)"
                             : "none",
                       }}

@@ -119,10 +119,11 @@ export function Footer({ t }: FooterProps) {
               animate="visible"
             >
               {[
-                { href: "#equipment", text: t.footer.equipmentRentals },
-                { href: "#services", text: t.footer.links.about },
-                { href: "#contact", text: t.footer.contactUs },
-                { href: "#", text: t.footer.links.safety },
+                { href: "#home", text: t.nav.home },
+                { href: "#equipment", text: t.nav.equipment },
+                { href: "#gallery", text: t.nav.gallery },
+                { href: "#services", text: t.nav.services },
+                { href: "#contact", text: t.nav.contact },
               ].map((link, index) => (
                 <motion.a
                   key={index}

@@ -54,7 +54,7 @@ export function HeroSection({ t }: HeroSectionProps) {
               <div className="relative">
                 <div className="bg-black border-2 border-white/20 p-4 max-w-sm">
                   <img
-                    src="/Hero.png"
+                    src="/Hero.jpg"
                     alt="Scissor Lift"
                     className="w-full h-auto filter brightness-110 contrast-125"
                   />
@@ -256,7 +256,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                   <div className="absolute -inset-4 bg-gradient-to-br from-red-600/20 to-transparent transform rotate-3"></div>
                   <div className="relative bg-black border-4 border-white/20 p-6">
                     <img
-                      src="/Hero.jpeg"
+                      src="/Hero.jpg"
                       alt="Scissor Lift"
                       className="w-full h-auto filter brightness-110 contrast-125"
                     />

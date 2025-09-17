@@ -209,21 +209,12 @@ export function VerticalMediaGallery({ t, mediaItems }: VerticalMediaGalleryProp
                     <video
                       ref={videoRef}
                       src={currentMedia.src}
-                      poster={currentMedia.poster || `${currentMedia.src}#t=0.1`}
+                      poster={currentMedia.poster || currentMedia.src.replace(/\.(mp4|webm|mov)$/i, '.jpg')}
                       className="w-full h-full object-cover cursor-pointer"
                       loop
                       playsInline
-                      preload="auto"
+                      preload="metadata"
                       onEnded={() => setIsPlaying(false)}
-                      onLoadedData={() => {
-                        if (videoRef.current && !currentMedia.poster) {
-                          const canvas = document.createElement('canvas');
-                          const ctx = canvas.getContext('2d');
-                          canvas.width = videoRef.current.videoWidth;
-                          canvas.height = videoRef.current.videoHeight;
-                          ctx?.drawImage(videoRef.current, 0, 0);
-                        }
-                      }}
                     />
                   ) : (
                     <img
@@ -396,10 +387,10 @@ export function VerticalMediaGallery({ t, mediaItems }: VerticalMediaGalleryProp
                       {item.type === 'video' ? (
                         <video
                           src={item.src}
-                          poster={item.poster || `${item.src}#t=0.1`}
+                          poster={item.poster || item.src.replace(/\.(mp4|webm|mov)$/i, '.jpg')}
                           className="w-full h-full object-cover"
                           muted
-                          preload="auto"
+                          preload="metadata"
                           playsInline
                         />
                       ) : (

@@ -294,7 +294,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="bg-black/80 border-2 border-red-600 p-4">
                         <div className="text-white">
-                          <p className="font-bold text-lg uppercase">
+                          <p className="font-bold text-2xl uppercase">
                             Call: 626-422-2271
                           </p>
                         </div>

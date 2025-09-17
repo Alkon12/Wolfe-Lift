@@ -289,19 +289,25 @@ export function HeroSection({ t }: HeroSectionProps) {
                         />
                       </div>
                     </motion.div>
-
-                    {/* Equipment info overlay */}
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-black/80 border-2 border-red-600 p-4">
-                        <div className="text-white">
-                          <p className="font-bold text-2xl uppercase">
-                            Call: 626-422-2271
-                          </p>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
+
+                {/* Large phone number display below image */}
+                <motion.div
+                  className="mt-8 text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2.5, duration: 0.6 }}
+                >
+                  <a
+                    href="tel:6264222271"
+                    className="block hover:scale-105 transition-transform duration-200"
+                  >
+                    <p className="text-white text-6xl xl:text-7xl font-black tracking-wider">
+                      626-422-2271
+                    </p>
+                  </a>
+                </motion.div>
               </motion.div>
             </div>
           </div>

@@ -248,7 +248,7 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
                   READY TO GET STARTED?
                 </h3>
                 <p className="text-white/80 uppercase tracking-wide text-sm md:text-base">
-                  GET YOUR QUOTE IN UNDER 60 SECONDS
+                  Get your quote today
                 </p>
               </div>
               

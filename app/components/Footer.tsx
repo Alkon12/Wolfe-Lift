@@ -194,10 +194,10 @@ export function Footer({ t }: FooterProps) {
             initial="hidden"
             animate="visible"
           >
-            {[].map((text, index) => (
+            {[t.footer.links.privacy].map((text, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href="/privacy"
                 className="hover:text-white transition-colors text-xs uppercase tracking-wide py-2 px-1 min-h-[40px] flex items-center"
                 variants={staggerItem}
                 whileHover={{

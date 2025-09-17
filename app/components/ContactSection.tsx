@@ -31,6 +31,14 @@ export function ContactSection({ t }: ContactSectionProps) {
   >("idle");
 
   const handleInputChange = (field: string, value: string) => {
+    // Validación para el campo de teléfono - solo números y algunos caracteres permitidos
+    if (field === 'phone') {
+      // Permitir solo números, espacios, guiones, paréntesis y el símbolo +
+      const phoneRegex = /^[0-9\s\-\(\)\+]*$/;
+      if (!phoneRegex.test(value)) {
+        return; // No actualizar si contiene caracteres no válidos
+      }
+    }
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -304,6 +312,8 @@ export function ContactSection({ t }: ContactSectionProps) {
                       }
                       value={formData.phone}
                       required
+                      pattern="[0-9\s\-\(\)\+]*"
+                      title="Solo se permiten números, espacios, guiones, paréntesis y el símbolo +"
                       style={{
                         boxShadow:
                           focusedField === "phone"

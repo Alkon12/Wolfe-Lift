@@ -263,7 +263,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                     {/* Logo como sticker en la esquina superior derecha */}
                     <motion.div
-                      className="absolute -top-38 -right-28 z-0"
+                      className="absolute -top-55 -right-45 z-0"
                       initial={{ opacity: 0, scale: 0.8, y: -20 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ delay: 2, duration: 0.8, ease: "backOut" }}

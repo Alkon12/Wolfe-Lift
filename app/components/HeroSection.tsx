@@ -40,54 +40,60 @@ export function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
+      {/* Logo como sticker en la esquina superior derecha del hero */}
+      <motion.div
+        className="absolute top-4 right-4 z-30"
+        initial={{ opacity: 0, scale: 0.8, y: -20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
+      >
+        <div className="relative transform rotate-12 hover:rotate-3 transition-all duration-300 hover:scale-110">
+          <img
+            src="/LogoSinFondo.png"
+            alt="Wolfe Lift Rentals"
+            className="w-32 h-32 lg:w-48 lg:h-48 object-contain relative z-10"
+            style={{
+              filter: `
+                drop-shadow(2px 0 0 white) 
+                drop-shadow(-2px 0 0 white) 
+                drop-shadow(0 2px 0 white) 
+                drop-shadow(0 -2px 0 white)
+                drop-shadow(1px 1px 0 white)
+                drop-shadow(1px -1px 0 white)
+                drop-shadow(-1px 1px 0 white)
+                drop-shadow(-1px -1px 0 white)
+                drop-shadow(0 0 8px rgba(0,0,0,0.4))
+              `,
+            }}
+          />
+        </div>
+      </motion.div>
+
       <div className="relative z-20 min-h-screen">
-        {/* Estructura para móvil */}
+        {/* Estructura para móvil optimizada */}
         <div className="lg:hidden">
-          <div className="min-h-screen flex flex-col justify-center px-4 py-8 pb-38">
-            {/* Imagen centrada arriba */}
+          <div className="min-h-screen flex flex-col justify-center px-4 py-8 pb-24 space-y-8">
+            {/* Imagen centrada */}
             <motion.div
-              className="flex justify-center mb-8"
+              className="flex justify-center"
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
             >
               <div className="relative">
-                <div className="bg-black border-2 border-white/20 p-4 max-w-sm">
+                <div className="bg-black border-2 border-white/20 p-4 max-w-xs">
                   <img
                     src="/Hero.jpg"
                     alt="Scissor Lift"
                     className="w-full h-auto filter brightness-110 contrast-125"
                   />
-
-                  {/* Logo en móvil - más grande */}
-                  <motion.div
-                    className="absolute -top-12 -right-6 z-40"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1, duration: 0.6 }}
-                  >
-                    <img
-                      src="/LogoSinFondo.png"
-                      alt="Wolfe Lift Rentals"
-                      className="w-52 h-52 object-contain"
-                      style={{
-                        filter: `
-                          drop-shadow(2px 0 0 white) 
-                          drop-shadow(-2px 0 0 white) 
-                          drop-shadow(0 2px 0 white) 
-                          drop-shadow(0 -2px 0 white)
-                          drop-shadow(0 0 8px rgba(0,0,0,0.4))
-                        `,
-                      }}
-                    />
-                  </motion.div>
                 </div>
               </div>
             </motion.div>
 
             {/* Contenido de texto centrado */}
             <motion.div
-              className="text-center space-y-6 relative z-40"
+              className="text-center space-y-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
@@ -127,12 +133,29 @@ export function HeroSection({ t }: HeroSectionProps) {
                 {t.hero.subheadline}
               </motion.p>
 
-              {/* Botones CTA */}
+              {/* Número de teléfono grande */}
               <motion.div
-                className="flex flex-col gap-4 pt-6 px-4"
+                className="py-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4, duration: 0.6 }}
+              >
+                <a
+                  href="tel:6264222271"
+                  className="block hover:scale-105 transition-transform duration-200"
+                >
+                  <p className="text-white text-3xl sm:text-4xl font-black tracking-wider">
+                    626-422-2271
+                  </p>
+                </a>
+              </motion.div>
+
+              {/* Botones CTA */}
+              <motion.div
+                className="flex flex-col gap-4 px-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.6 }}
               >
                 <motion.a
                   href="#contact"
@@ -151,14 +174,51 @@ export function HeroSection({ t }: HeroSectionProps) {
                 </motion.a>
               </motion.div>
             </motion.div>
+
+            {/* Sección de operador para móvil */}
+            <motion.div
+              className="bg-black/80 border border-white/20 p-6 space-y-4 mx-4 rounded-lg"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.8, duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.div
+                className="text-center space-y-3"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2, duration: 0.6 }}
+              >
+                <h2 className="text-xl font-black uppercase leading-tight">
+                  <span className="block text-white">If you need to do work in</span>
+                  <span className="block text-black bg-white px-2 py-1 inline-block">high places</span>
+                  <span className="block text-white">& you're afraid of heights</span>
+                </h2>
+                
+                <p className="text-lg font-bold text-black bg-white px-2 py-1 uppercase inline-block">
+                  maybe we can do the work for you.
+                </p>
+                
+                <div className="space-y-2 text-white/90 text-sm">
+                  <p className="font-semibold">
+                    You can now rent a scissor lift with an operator.
+                  </p>
+                  <p className="font-semibold">
+                    The operator has his own tools.
+                  </p>
+                  <p className="font-semibold">
+                    Call us, let us know about your project & we will see if we can help you.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Estructura para escritorio - sin cambios */}
+        {/* Estructura para escritorio - 3 columnas */}
         <div className="hidden lg:flex min-h-screen items-center">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left side - Main content */}
+            <div className="grid lg:grid-cols-3 gap-8 items-center">
+              {/* Left column - Main content */}
               <motion.div
                 className="space-y-6"
                 initial={{ opacity: 0, x: -100 }}
@@ -168,7 +228,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                 {/* Main title with staggered animation */}
                 <div className="space-y-4">
                   <motion.h1
-                    className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase leading-none"
+                    className="text-4xl lg:text-5xl xl:text-6xl font-black uppercase leading-none"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
@@ -202,7 +262,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                 {/* Subtitle */}
                 <motion.p
-                  className="text-white/90 text-xl xl:text-2xl font-bold uppercase tracking-wide"
+                  className="text-white/90 text-lg xl:text-xl font-bold uppercase tracking-wide"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.8, duration: 0.6 }}
@@ -212,14 +272,14 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                 {/* CTA Buttons */}
                 <motion.div
-                  className="flex gap-4 pt-4"
+                  className="flex flex-col gap-4 pt-4"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.2, duration: 0.6 }}
                 >
                   <motion.a
                     href="#contact"
-                    className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-black text-lg uppercase tracking-widest relative overflow-hidden group border-2 border-red-600 hover:border-red-700 transition-all duration-200"
+                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 font-black text-base uppercase tracking-widest relative overflow-hidden group border-2 border-red-600 hover:border-red-700 transition-all duration-200 text-center"
                     style={{
                       clipPath: "polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%)",
                     }}
@@ -232,7 +292,7 @@ export function HeroSection({ t }: HeroSectionProps) {
 
                   <motion.a
                     href="tel:6264222271"
-                    className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 font-black text-lg uppercase tracking-widest relative overflow-hidden group transition-all duration-200"
+                    className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 font-black text-base uppercase tracking-widest relative overflow-hidden group transition-all duration-200 text-center"
                     style={{
                       clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)",
                     }}
@@ -244,57 +304,29 @@ export function HeroSection({ t }: HeroSectionProps) {
                 </motion.div>
               </motion.div>
 
-              {/* Right side - Equipment showcase */}
+              {/* Center column - Equipment showcase */}
               <motion.div
                 className="relative"
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
               >
                 {/* Industrial frame */}
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-red-600/20 to-transparent transform rotate-3"></div>
-                  <div className="relative bg-black border-4 border-white/20 p-6">
+                  <div className="relative bg-black border-4 border-white/20 p-4">
                     <img
                       src="/Hero.jpg"
                       alt="Scissor Lift"
                       className="w-full h-auto filter brightness-110 contrast-125"
                     />
 
-                    {/* Logo como sticker en la esquina superior derecha */}
-                    <motion.div
-                      className="absolute -top-55 -right-45 z-0"
-                      initial={{ opacity: 0, scale: 0.8, y: -20 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
-                    >
-                      <div className="relative transform rotate-24 hover:rotate-3 transition-all duration-300 hover:scale-125">
-                        <img
-                          src="/LogoSinFondo.png"
-                          alt="Wolfe Lift Rentals"
-                          className="w-96 h-96 object-contain relative z-10"
-                          style={{
-                            filter: `
-                              drop-shadow(3px 0 0 white) 
-                              drop-shadow(-3px 0 0 white) 
-                              drop-shadow(0 3px 0 white) 
-                              drop-shadow(0 -3px 0 white)
-                              drop-shadow(2px 2px 0 white)
-                              drop-shadow(2px -2px 0 white)
-                              drop-shadow(-2px 2px 0 white)
-                              drop-shadow(-2px -2px 0 white)
-                              drop-shadow(0 0 12px rgba(0,0,0,0.4))
-                            `,
-                          }}
-                        />
-                      </div>
-                    </motion.div>
                   </div>
                 </div>
 
                 {/* Large phone number display below image */}
                 <motion.div
-                  className="mt-8 text-center"
+                  className="mt-6 text-center"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.5, duration: 0.6 }}
@@ -303,10 +335,51 @@ export function HeroSection({ t }: HeroSectionProps) {
                     href="tel:6264222271"
                     className="block hover:scale-105 transition-transform duration-200"
                   >
-                    <p className="text-white text-6xl xl:text-7xl font-black tracking-wider">
+                    <p className="text-white text-3xl xl:text-4xl font-black tracking-wider">
                       626-422-2271
                     </p>
                   </a>
+                </motion.div>
+              </motion.div>
+
+              {/* Right column - Operator service */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2, duration: 0.8, ease: "easeOut" }}
+              >
+                <motion.div
+                  className="text-white space-y-4"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2.2, duration: 0.6 }}
+                >
+                  <h2 className="text-2xl xl:text-3xl font-black uppercase leading-tight">
+                    <span className="block text-white">If you need to do</span>
+                    <span className="block text-white">work in</span>
+                    <span className="block text-black bg-white px-2 py-1">high places</span>
+                    <span className="block text-white">& you're afraid</span>
+                    <span className="block text-white">of heights</span>
+                  </h2>
+                  
+                  <p className="text-xl font-bold text-black bg-white px-2 py-1 uppercase inline-block">
+                    maybe we can do the work for you.
+                  </p>
+                  
+                  <div className="space-y-3 text-white/90">
+                    <p className="text-lg font-semibold">
+                      You can now rent a scissor lift with an operator.
+                    </p>
+                    <p className="text-lg font-semibold">
+                      The operator has his own tools.
+                    </p>
+                    <p className="text-lg font-semibold">
+                      Call us, let us know about your project
+                      <br />
+                      & we will see if we can help you.
+                    </p>
+                  </div>
                 </motion.div>
               </motion.div>
             </div>
@@ -314,9 +387,9 @@ export function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Bottom features strip */}
+      {/* Bottom features strip - Solo en desktop */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 bg-black border-t-4 border-red-600 z-30"
+        className="hidden md:block absolute bottom-0 left-0 right-0 bg-black border-t-4 border-red-600 z-30"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.5, duration: 0.6, ease: "easeOut" }}

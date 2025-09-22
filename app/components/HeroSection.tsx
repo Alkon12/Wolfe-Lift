@@ -40,35 +40,6 @@ export function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Logo como sticker en la esquina superior derecha del hero */}
-      <motion.div
-        className="absolute top-4 right-4 z-30"
-        initial={{ opacity: 0, scale: 0.8, y: -20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
-      >
-        <div className="relative transform rotate-12 hover:rotate-3 transition-all duration-300 hover:scale-110">
-          <img
-            src="/LogoSinFondo.png"
-            alt="Wolfe Lift Rentals"
-            className="w-32 h-32 lg:w-48 lg:h-48 object-contain relative z-10"
-            style={{
-              filter: `
-                drop-shadow(2px 0 0 white) 
-                drop-shadow(-2px 0 0 white) 
-                drop-shadow(0 2px 0 white) 
-                drop-shadow(0 -2px 0 white)
-                drop-shadow(1px 1px 0 white)
-                drop-shadow(1px -1px 0 white)
-                drop-shadow(-1px 1px 0 white)
-                drop-shadow(-1px -1px 0 white)
-                drop-shadow(0 0 8px rgba(0,0,0,0.4))
-              `,
-            }}
-          />
-        </div>
-      </motion.div>
-
       <div className="relative z-20 min-h-screen">
         {/* Estructura para móvil optimizada */}
         <div className="lg:hidden">
@@ -88,6 +59,34 @@ export function HeroSection({ t }: HeroSectionProps) {
                     className="w-full h-auto filter brightness-110 contrast-125"
                   />
                 </div>
+                {/* Logo en esquina superior derecha de la imagen móvil */}
+                <motion.div
+                  className="absolute -top-2 -right-2 z-30 pointer-events-none"
+                  initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
+                >
+                  <div className="relative transform rotate-12 hover:rotate-3 transition-all duration-300 hover:scale-110 pointer-events-auto">
+                    <img
+                      src="/LogoSinFondo.png"
+                      alt="Wolfe Lift Rentals"
+                      className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-contain relative z-10"
+                      style={{
+                        filter: `
+                          drop-shadow(2px 0 0 white) 
+                          drop-shadow(-2px 0 0 white) 
+                          drop-shadow(0 2px 0 white) 
+                          drop-shadow(0 -2px 0 white)
+                          drop-shadow(1px 1px 0 white)
+                          drop-shadow(1px -1px 0 white)
+                          drop-shadow(-1px 1px 0 white)
+                          drop-shadow(-1px -1px 0 white)
+                          drop-shadow(0 0 8px rgba(0,0,0,0.4))
+                        `,
+                      }}
+                    />
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -189,15 +188,21 @@ export function HeroSection({ t }: HeroSectionProps) {
                 transition={{ delay: 2, duration: 0.6 }}
               >
                 <h2 className="text-xl font-black uppercase leading-tight">
-                  <span className="block text-white">If you need to do work in</span>
-                  <span className="block text-black bg-white px-2 py-1 inline-block">high places</span>
-                  <span className="block text-white">& you're afraid of heights</span>
+                  <span className="block text-white">
+                    If you need to do work in
+                  </span>
+                  <span className="block text-black bg-white px-2 py-1 inline-block">
+                    high places
+                  </span>
+                  <span className="block text-white">
+                    & you're afraid of heights
+                  </span>
                 </h2>
-                
+
                 <p className="text-lg font-bold text-black bg-white px-2 py-1 uppercase inline-block">
                   maybe we can do the work for you.
                 </p>
-                
+
                 <div className="space-y-2 text-white/90 text-sm">
                   <p className="font-semibold">
                     You can now rent a scissor lift with an operator.
@@ -206,7 +211,8 @@ export function HeroSection({ t }: HeroSectionProps) {
                     The operator has his own tools.
                   </p>
                   <p className="font-semibold">
-                    Call us, let us know about your project & we will see if we can help you.
+                    Call us, let us know about your project & we will see if we
+                    can help you.
                   </p>
                 </div>
               </motion.div>
@@ -214,13 +220,13 @@ export function HeroSection({ t }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Estructura para escritorio - 3 columnas */}
-        <div className="hidden lg:flex min-h-screen items-center">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-3 gap-8 items-center">
-              {/* Left column - Main content */}
+        {/* Estructura para escritorio - 3 columnas rebalanceadas */}
+        <div className="hidden lg:flex min-h-screen items-center pb-16 lg:pb-20 xl:pb-24">
+          <div className="w-full px-4 lg:px-6 xl:px-8 2xl:px-12">
+            <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 xl:gap-8 items-center min-h-[70vh]">
+              {/* Left column - Main content (más ancho) */}
               <motion.div
-                className="space-y-6"
+                className="lg:col-span-4 xl:col-span-3 space-y-6"
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
@@ -304,24 +310,51 @@ export function HeroSection({ t }: HeroSectionProps) {
                 </motion.div>
               </motion.div>
 
-              {/* Center column - Equipment showcase */}
+              {/* Center column - Equipment showcase (PRINCIPAL) */}
               <motion.div
-                className="relative"
+                className="lg:col-span-5 xl:col-span-6 relative pt-12 lg:pt-16 xl:pt-20"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
               >
-                {/* Industrial frame */}
-                <div className="relative">
+                {/* Industrial frame - imagen más pequeña */}
+                <div className="relative max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
                   <div className="absolute -inset-4 bg-gradient-to-br from-red-600/20 to-transparent transform rotate-3"></div>
-                  <div className="relative bg-black border-4 border-white/20 p-4">
+                  <div className="relative bg-black border-4 border-white/20 p-4 lg:p-6">
                     <img
                       src="/Hero.jpg"
                       alt="Scissor Lift"
                       className="w-full h-auto filter brightness-110 contrast-125"
                     />
-
                   </div>
+                  {/* Logo en esquina superior derecha de la imagen desktop */}
+                  <motion.div
+                    className="absolute -top-45 -right-22 z-30 pointer-events-none"
+                    initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 2, duration: 0.8, ease: "backOut" }}
+                  >
+                    <div className="relative transform rotate-12 hover:rotate-3 transition-all duration-300 hover:scale-110 pointer-events-auto">
+                      <img
+                        src="/LogoSinFondo.png"
+                        alt="Wolfe Lift Rentals"
+                        className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96 object-contain relative z-10"
+                        style={{
+                          filter: `
+                              drop-shadow(2px 0 0 white) 
+                              drop-shadow(-2px 0 0 white) 
+                              drop-shadow(0 2px 0 white) 
+                              drop-shadow(0 -2px 0 white)
+                              drop-shadow(1px 1px 0 white)
+                              drop-shadow(1px -1px 0 white)
+                              drop-shadow(-1px 1px 0 white)
+                              drop-shadow(-1px -1px 0 white)
+                              drop-shadow(0 0 8px rgba(0,0,0,0.4))
+                            `,
+                        }}
+                      />
+                    </div>
+                  </motion.div>
                 </div>
 
                 {/* Large phone number display below image */}
@@ -335,16 +368,16 @@ export function HeroSection({ t }: HeroSectionProps) {
                     href="tel:6264222271"
                     className="block hover:scale-105 transition-transform duration-200"
                   >
-                    <p className="text-white text-3xl xl:text-4xl font-black tracking-wider">
+                    <p className="text-white text-4xl lg:text-5xl xl:text-6xl font-black tracking-wider">
                       626-422-2271
                     </p>
                   </a>
                 </motion.div>
               </motion.div>
 
-              {/* Right column - Operator service */}
+              {/* Right column - Operator service (más ancho) */}
               <motion.div
-                className="space-y-6"
+                className="lg:col-span-3 xl:col-span-3 space-y-6 pr-4 lg:pr-6 pl-4 lg:pl-8 flex items-center"
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 2, duration: 0.8, ease: "easeOut" }}
@@ -355,29 +388,30 @@ export function HeroSection({ t }: HeroSectionProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.2, duration: 0.6 }}
                 >
-                  <h2 className="text-2xl xl:text-3xl font-black uppercase leading-tight">
+                  <h2 className="text-xl lg:text-2xl xl:text-3xl font-black uppercase leading-tight">
                     <span className="block text-white">If you need to do</span>
                     <span className="block text-white">work in</span>
-                    <span className="block text-black bg-white px-2 py-1">high places</span>
+                    <span className="block text-black bg-white px-2 py-1">
+                      high places
+                    </span>
                     <span className="block text-white">& you're afraid</span>
                     <span className="block text-white">of heights</span>
                   </h2>
-                  
-                  <p className="text-xl font-bold text-black bg-white px-2 py-1 uppercase inline-block">
+
+                  <p className="text-lg lg:text-xl font-bold text-black bg-white px-2 py-1 uppercase inline-block">
                     maybe we can do the work for you.
                   </p>
-                  
+
                   <div className="space-y-3 text-white/90">
-                    <p className="text-lg font-semibold">
+                    <p className="text-base lg:text-lg font-semibold">
                       You can now rent a scissor lift with an operator.
                     </p>
-                    <p className="text-lg font-semibold">
+                    <p className="text-base lg:text-lg font-semibold">
                       The operator has his own tools.
                     </p>
-                    <p className="text-lg font-semibold">
-                      Call us, let us know about your project
-                      <br />
-                      & we will see if we can help you.
+                    <p className="text-base lg:text-lg font-semibold">
+                      Call us, let us know about your project & we will see if
+                      we can help you.
                     </p>
                   </div>
                 </motion.div>

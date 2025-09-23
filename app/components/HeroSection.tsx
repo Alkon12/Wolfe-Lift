@@ -329,7 +329,9 @@ export function HeroSection({ t }: HeroSectionProps) {
                   </div>
                   {/* Logo en esquina superior derecha de la imagen desktop */}
                   <motion.div
-                    className="absolute -top-45 -right-22 z-30 pointer-events-none"
+                    className="absolute z-68 pointer-events-none
+                               -top-32 -right-24 lg:-top-40 lg:-right-32 
+                               xl:-top-48 xl:-right-40 2xl:-top-65 2xl:-right-42"
                     initial={{ opacity: 0, scale: 0.8, y: -20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: 2, duration: 0.8, ease: "backOut" }}

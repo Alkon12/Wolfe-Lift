@@ -114,7 +114,9 @@ export const translations = {
         safety: "Safety",
         terms: "Terms",
         privacy: "Privacy",
+        yelp: "Yelp Reviews",
       },
+      yelpCta: "Share your experience",
     },
     mobile: {
       callNow: "Call Now",
@@ -242,7 +244,9 @@ export const translations = {
         safety: "Seguridad",
         terms: "Términos",
         privacy: "Privacidad",
+        yelp: "Reseñas de Yelp",
       },
+      yelpCta: "Comparte tu experiencia",
     },
     mobile: {
       callNow: "Llamar Ahora",

@@ -728,6 +728,51 @@ export function ContactSection({ t }: ContactSectionProps) {
             </div>
           </div>
         </motion.div>
+
+        {/* Small Yelp review section */}
+        <motion.div
+          className="mt-8 md:mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+        >
+          <motion.a
+            href="https://yelp.to/ZgtvsURs91"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 rounded-none group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.div
+              className="w-8 h-8 flex items-center justify-center"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+            >
+              <svg
+                className="w-6 h-6 text-red-500 group-hover:text-yellow-400 transition-colors duration-300"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </motion.div>
+            <div className="text-left">
+              <div className="text-white text-sm font-bold uppercase tracking-wide">
+                {t.footer.links.yelp}
+              </div>
+              <div className="text-white/70 text-xs uppercase tracking-wider">
+                {t.footer.yelpCta}
+              </div>
+            </div>
+            <motion.div
+              className="text-white/60 group-hover:text-white/80 transition-colors duration-300"
+              whileHover={{ x: 3 }}
+            >
+              →
+            </motion.div>
+          </motion.a>
+        </motion.div>
       </div>
     </motion.section>
   );

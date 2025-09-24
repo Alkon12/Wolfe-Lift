@@ -194,10 +194,13 @@ export function Footer({ t }: FooterProps) {
             initial="hidden"
             animate="visible"
           >
-            {[t.footer.links.privacy].map((text, index) => (
+            {[
+              { href: "/privacy", text: t.footer.links.privacy },
+              { href: "https://yelp.to/ZgtvsURs91", text: t.footer.links.yelp, external: true }
+            ].map((link, index) => (
               <motion.a
                 key={index}
-                href="/privacy"
+                href={link.href}
                 className="hover:text-white transition-colors text-xs uppercase tracking-wide py-2 px-1 min-h-[40px] flex items-center"
                 variants={staggerItem}
                 whileHover={{
@@ -205,8 +208,10 @@ export function Footer({ t }: FooterProps) {
                   y: -1,
                 }}
                 transition={{ duration: 0.2 }}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
               >
-                {text}
+                {link.text}
               </motion.a>
             ))}
           </motion.div>
